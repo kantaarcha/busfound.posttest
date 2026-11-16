@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>แบบทดสอบท้ายบทความรู้พื้นฐานทางธุรกิจ (บทที่ 7 - 12)</title>
+  <!-- Google Fonts: Plus Jakarta Sans & Sarabun & Prompt -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Prompt:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Prompt', 'Sarabun', 'sans-serif'],
+            heading: ['"Plus Jakarta Sans"', 'Prompt', 'sans-serif'],
+            body: ['Sarabun', 'sans-serif'],
+          },
+          colors: {
+            jungletheme: {
+              bg: '#f2f7f2',
+              card: '#ffffff',
+              mist: '#e3efe4',
+              border: '#bad6be',
+              ink: '#132a1c',
+              muted: '#4a6353',
+              primary: '#15803d',
+              deep: '#14532d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background-color: #f2f7f2;
+      background-image:
+        radial-gradient(circle at 12% 14%, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 45%),
+        radial-gradient(circle at 88% 12%, rgba(187, 247, 208, 0.45) 0%, rgba(187, 247, 208, 0) 52%),
+        radial-gradient(circle at 50% 90%, rgba(217, 249, 157, 0.25) 0%, rgba(217, 249, 157, 0) 55%),
+        linear-gradient(180deg, #e6f2e8 0%, #f2f7f2 48%, #eaf3ea 100%);
+      background-attachment: fixed;
+      color: #132a1c;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3, h4, h5, .font-heading {
+      font-family: 'Plus Jakarta Sans', 'Prompt', sans-serif;
+    }
+    .jungle-card {
+      background-color: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 6px 24px -6px rgba(20, 83, 45, 0.08), 0 1px 3px rgba(20, 83, 45, 0.05);
+    }
+    .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scroll::-webkit-scrollbar-thumb { background-color: #86efac; border-radius: 9999px; }
+    .custom-scroll::-webkit-scrollbar-track { background-color: #f0fdf4; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .option-card { transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1); }
+    .option-card:active:not(.locked) { transform: scale(0.99); }
+    @keyframes leafSway {
+      0%, 100% { transform: rotate(0deg) translateY(0px); }
+      50% { transform: rotate(1.8deg) translateY(-3px); }
+    }
+    @keyframes fireflyFloat {
+      0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.45; }
+      50% { transform: translateY(-7px) translateX(5px); opacity: 0.9; }
+    }
+    .animate-leaf { transform-origin: top right; animation: leafSway 7s ease-in-out infinite; }
+    .animate-firefly { animation: fireflyFloat 5.5s ease-in-out infinite; }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-card { animation: fadeSlideUp 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-emerald-200 selection:text-emerald-950">
+
+  <!-- ================= TOP JUNGLE & BOTANICAL HEADER ================= -->
+  <header class="sticky top-0 z-40 bg-white/92 border-b border-emerald-200/80 shadow-2xs backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-2">
+      <!-- Logo & Title -->
+      <div class="flex items-center space-x-2.5 min-w-0 cursor-pointer group" onclick="goToHome()">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-900 via-green-700 to-lime-600 flex items-center justify-center text-white shadow-xs shrink-0 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-leaf text-sm"></i>
+        </div>
+        <div class="truncate">
+          <h1 class="text-sm sm:text-base font-bold text-slate-800 leading-tight truncate font-heading">แบบทดสอบท้ายบทความรู้พื้นฐานทางธุรกิจ</h1>
+          <p class="text-[11px] text-emerald-700 font-medium truncate">รวมครบทุกบท (บทที่ 7 - บทที่ 12) • รวม 125 ข้อ</p>
+        </div>
+      </div>
+
+      <!-- Right Action Controls (Always Accessible Calculator + Quiz Controls) -->
+      <div class="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
+        <!-- Prominent Always-Available Calculator Button -->
+        <button onclick="toggleScratchpadModal(true)" title="เปิดเครื่องคิดเลขและกระดาษทด" class="inline-flex items-center space-x-1.5 bg-emerald-50 hover:bg-emerald-100 active:scale-95 border border-emerald-300 text-emerald-900 px-2.5 sm:px-3 py-1.5 rounded-xl font-heading font-semibold text-xs transition shadow-2xs">
+          <i class="fa-solid fa-calculator text-emerald-700"></i>
+          <span>เครื่องคิดเลข</span>
+        </button>
+
+        <!-- Active Quiz Controls (Shown during test) -->
+        <div id="headerTestControls" class="hidden flex items-center space-x-1.5 sm:space-x-2">
+          <button onclick="toggleFeedbackModeLive()" id="liveModeToggleBtn" title="สลับโหมดเฉลย" class="hidden md:inline-flex items-center space-x-1.5 bg-lime-50 hover:bg-lime-100 border border-lime-300 text-lime-900 px-2.5 py-1.5 rounded-xl font-heading font-semibold text-xs transition">
+            <i class="fa-solid fa-bolt text-lime-700"></i>
+            <span id="liveModeText">เฉลยเลย</span>
+          </button>
+          <div class="flex items-center space-x-1.5 bg-slate-100 border border-slate-200 text-slate-700 px-2.5 py-1.5 rounded-xl font-heading font-semibold text-xs">
+            <i class="fa-regular fa-clock text-emerald-700"></i>
+            <span id="timerDisplay">00:00</span>
+          </div>
+          <button onclick="promptSubmitQuiz()" class="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-emerald-900 hover:bg-emerald-950 active:scale-95 text-white rounded-xl text-xs font-heading font-semibold transition shadow-2xs">
+            <i class="fa-solid fa-paper-plane text-[10px]"></i>
+            <span>ส่งข้อสอบ</span>
+          </button>
+        </div>
+
+        <!-- Home / Overview Jungle Badge -->
+        <div id="headerHelpLink" class="flex items-center space-x-1.5">
+          <button onclick="goToHome()" class="hidden sm:inline-flex items-center space-x-1.5 text-xs bg-emerald-800 hover:bg-emerald-900 text-white px-3 py-1.5 rounded-xl font-heading font-semibold transition shadow-2xs">
+            <i class="fa-solid fa-seedling text-lime-300"></i>
+            <span>หน้าหลัก 6 บท</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter Switcher Bar (Botanical Greens, Sage, Moss, Teal, Olive, Forest) -->
+    <nav class="bg-emerald-50/85 border-t border-emerald-200/70 px-3 sm:px-6 overflow-x-auto no-scrollbar">
+      <div class="max-w-7xl mx-auto flex space-x-1.5 sm:space-x-2 py-1.5 items-center">
+        <button onclick="goToHome()" id="tab-home" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition bg-emerald-900 text-white font-semibold shadow-2xs">
+          <i class="fa-solid fa-house mr-1"></i>หน้าหลัก
+        </button>
+        <button onclick="selectChapter('ch7')" id="tab-ch7" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition text-emerald-800 bg-white/85 hover:bg-emerald-100 border border-emerald-200">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1"></span>บทที่ 7: FIN MAN
+        </button>
+        <button onclick="selectChapter('ch8')" id="tab-ch8" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition text-teal-800 bg-white/85 hover:bg-teal-100 border border-teal-200">
+          <span class="inline-block w-2 h-2 rounded-full bg-teal-600 mr-1"></span>บทที่ 8: SPC
+        </button>
+        <button onclick="selectChapter('ch9')" id="tab-ch9" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition text-green-800 bg-white/85 hover:bg-green-100 border border-green-200">
+          <span class="inline-block w-2 h-2 rounded-full bg-green-600 mr-1"></span>บทที่ 9: MIS
+        </button>
+        <button onclick="selectChapter('ch10')" id="tab-ch10" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition text-lime-900 bg-white/85 hover:bg-lime-100 border border-lime-300">
+          <span class="inline-block w-2 h-2 rounded-full bg-lime-600 mr-1"></span>บทที่ 10: HRM
+        </button>
+        <button onclick="selectChapter('ch11')" id="tab-ch11" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition text-emerald-950 bg-white/85 hover:bg-emerald-100 border border-emerald-300">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-800 mr-1"></span>บทที่ 11: IBM
+        </button>
+        <button onclick="selectChapter('ch12')" id="tab-ch12" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition text-amber-900 bg-white/85 hover:bg-amber-100 border border-amber-300">
+          <span class="inline-block w-2 h-2 rounded-full bg-amber-600 mr-1"></span>บทที่ 12: ETH
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= MAIN CONTAINER ================= -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 py-5 sm:py-7 pb-20">
+
+    <!-- ================================================================= -->
+    <!-- VIEW 0: HOME SCREEN (JUNGLE, FLORA & WILDLIFE THEME • 125 QUESTIONS) -->
+    <!-- ================================================================= -->
+    <section id="viewHome" class="space-y-6 max-w-5xl mx-auto">
+
+      <!-- Soothing Jungle Canopy, Botanical Leaves & Wildlife Hero Banner -->
+      <div class="relative overflow-hidden bg-gradient-to-br from-emerald-800 via-green-900 to-teal-950 text-white rounded-3xl p-6 sm:p-9 shadow-md border border-emerald-400/25">
+        <!-- Decorative Jungle Foliage, Vines, Bird/Toucan, Butterfly & Fireflies SVG -->
+        <svg class="absolute right-0 top-0 h-full w-auto opacity-25 pointer-events-none" viewBox="0 0 460 250" fill="none">
+          <!-- Soft sunbeams -->
+          <polygon points="240,0 320,0 220,250 130,250" fill="white" opacity="0.06"/>
+          <polygon points="340,0 410,0 330,250 260,250" fill="#d9f99d" opacity="0.06"/>
+          <!-- Hanging jungle vines -->
+          <path d="M270 0 Q 262 55, 278 105" stroke="#bbf7d0" stroke-width="2" fill="none" opacity="0.5"/>
+          <path d="M315 0 Q 325 45, 310 90" stroke="#bbf7d0" stroke-width="1.5" fill="none" opacity="0.4"/>
+          <!-- Palm & Monstera Leaves top right -->
+          <g class="animate-leaf">
+            <path d="M460 10 C400 10, 355 45, 330 95 C375 80, 420 55, 460 10 Z" fill="#86efac" opacity="0.55"/>
+            <path d="M460 55 C410 45, 365 75, 345 120 C390 110, 430 90, 460 55 Z" fill="#4ade80" opacity="0.4"/>
+            <path d="M415 0 C370 20, 335 55, 325 95 C365 65, 395 35, 415 0 Z" fill="#dcfce7" opacity="0.45"/>
+          </g>
+          <!-- Tree branch + Tropical Bird silhouette -->
+          <path d="M235 165 Q 295 148, 365 156" stroke="#dcfce7" stroke-width="3" stroke-linecap="round" opacity="0.65"/>
+          <path d="M292 153 C292 134, 305 123, 317 126 C327 128, 336 135, 334 142 C326 142, 320 144, 316 150 L318 164 L305 168 L296 155 Z" fill="white" opacity="0.8"/>
+          <!-- Butterfly -->
+          <g class="animate-firefly" transform="translate(195, 78)">
+            <path d="M12 12 C4 2, 0 8, 6 14 C2 18, 6 24, 12 16 C18 24, 22 18, 18 14 C24 8, 20 2, 12 12 Z" fill="#fde68a" opacity="0.8"/>
+          </g>
+          <!-- Fireflies / Pollen -->
+          <circle class="animate-firefly" cx="150" cy="120" r="2.5" fill="#fef08a"/>
+          <circle class="animate-firefly" cx="245" cy="65" r="2" fill="#bbf7d0" style="animation-delay:1.2s"/>
+          <circle class="animate-firefly" cx="375" cy="185" r="3" fill="#fde68a" style="animation-delay:2.1s"/>
+          <!-- Lush fern hills at bottom -->
+          <path d="M80 250 Q 150 190, 230 230 T 380 215 T 460 250 Z" fill="#14532d" opacity="0.55"/>
+          <path d="M180 250 Q 260 195, 340 235 T 460 220 L 460 250 Z" fill="#bbf7d0" opacity="0.2"/>
+        </svg>
+
+        <div class="relative z-10 space-y-3.5 max-w-2xl">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 bg-white/15 text-emerald-100 rounded-full text-xs font-heading font-semibold tracking-wider border border-white/20 backdrop-blur-xs">
+            <i class="fa-solid fa-tree text-lime-300"></i>
+            <span>BUSINESS FOUNDATIONS • JUNGLE BOTANICAL STUDY</span>
+            <i class="fa-solid fa-paw text-emerald-200"></i>
+          </div>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading leading-tight">
+            แบบทดสอบท้ายบทความรู้พื้นฐานทางธุรกิจ<br/>
+            <span class="text-lime-200 font-semibold text-lg sm:text-2xl">ครบทั้ง 6 บทเรียน (บทที่ 7 – บทที่ 12) รวม 125 ข้อ</span>
+          </h2>
+          <p class="text-emerald-100/90 text-xs sm:text-sm leading-relaxed">
+            ออกแบบในโทนสีป่าไม้ พืชพรรณ และธรรมชาติที่นุ่มนวลสบายตา พร้อมเครื่องคิดเลขและกระดาษทดในตัว สรุปแผนภาพแนวคิดสำคัญในหน้าเดียวกับเริ่มทำข้อสอบ และเฉลยละเอียดครบทุกข้อ
+          </p>
+          <div class="pt-1 flex flex-wrap items-center gap-2.5">
+            <button onclick="toggleScratchpadModal(true)" class="inline-flex items-center space-x-2 px-4 py-2 bg-white/15 hover:bg-white/25 text-white border border-white/25 rounded-xl text-xs font-heading font-semibold transition backdrop-blur-xs">
+              <i class="fa-solid fa-calculator text-lime-200"></i>
+              <span>เปิดเครื่องคิดเลข & กระดาษทด</span>
+            </button>
+            <button onclick="selectChapter('ch7')" class="inline-flex items-center space-x-2 px-4 py-2 bg-lime-400/25 hover:bg-lime-400/35 text-white border border-lime-200/40 rounded-xl text-xs font-heading font-semibold transition backdrop-blur-xs">
+              <i class="fa-solid fa-compass text-lime-200"></i>
+              <span>เริ่มบทที่ 7 (FIN MAN)</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 Chapters Grid: 7 -> 8 -> 9 -> 10 -> 11 -> 12 (Botanical & Jungle Palette) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!-- Chapter 7: FIN MAN (Emerald Canopy) -->
+        <div onclick="selectChapter('ch7')" class="group cursor-pointer bg-gradient-to-br from-white via-white to-emerald-50/90 rounded-2xl p-5 border border-emerald-200 shadow-xs hover:border-emerald-500 hover:shadow-md transition flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 border border-emerald-200 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-coins"></i>
+              </div>
+              <span class="text-xs font-heading font-semibold bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full border border-emerald-200">บทที่ 7 • 10 ข้อ</span>
+            </div>
+            <h3 class="text-base font-bold font-heading text-slate-800 group-hover:text-emerald-700 transition">บทที่ 7: การบริหารการเงิน (FIN MAN)</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              บทบาทผู้บริหารการเงิน มูลค่าเงินตามเวลา (PV/FV/PMT) การประเมินมูลค่าหุ้น และงบการเงินประมาณการ (10 ข้อ)
+            </p>
+          </div>
+          <div class="pt-3 border-t border-emerald-100 flex items-center justify-between text-xs font-heading font-semibold text-emerald-700">
+            <span><i class="fa-solid fa-seedling mr-1 text-emerald-500"></i>สูตร + 10 ข้อ</span>
+            <span class="px-3 py-1.5 bg-emerald-700 text-white rounded-xl group-hover:bg-emerald-800 transition">เข้าสู่บทที่ 7 <i class="fa-solid fa-arrow-right ml-1"></i></span>
+          </div>
+        </div>
+
+        <!-- Chapter 8: SPC (Jungle River Teal) -->
+        <div onclick="selectChapter('ch8')" class="group cursor-pointer bg-gradient-to-br from-white via-white to-teal-50/90 rounded-2xl p-5 border border-teal-200 shadow-xs hover:border-teal-500 hover:shadow-md transition flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <div class="w-11 h-11 rounded-xl bg-teal-100 text-teal-700 border border-teal-200 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-truck-fast"></i>
+              </div>
+              <span class="text-xs font-heading font-semibold bg-teal-100 text-teal-800 px-2.5 py-1 rounded-full border border-teal-200">บทที่ 8 • 25 ข้อ</span>
+            </div>
+            <h3 class="text-base font-bold font-heading text-slate-800 group-hover:text-teal-700 transition">บทที่ 8: โซ่อุปทานและโลจิสติกส์ (SPC)</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              การไหลเวียนในโซ่อุปทาน โลจิสติกส์ย้อนกลับ Outsourcing ปรากฏการณ์แส้ม้า VMI, JIT และกรณีศึกษา (5 ชุด • 25 ข้อ)
+            </p>
+          </div>
+          <div class="pt-3 border-t border-teal-100 flex items-center justify-between text-xs font-heading font-semibold text-teal-700">
+            <span><i class="fa-solid fa-water mr-1 text-teal-500"></i>แผนภาพ + 25 ข้อ</span>
+            <span class="px-3 py-1.5 bg-teal-700 text-white rounded-xl group-hover:bg-teal-800 transition">เข้าสู่บทที่ 8 <i class="fa-solid fa-arrow-right ml-1"></i></span>
+          </div>
+        </div>
+
+        <!-- Chapter 9: MIS (Forest Fern Green) -->
+        <div onclick="selectChapter('ch9')" class="group cursor-pointer bg-gradient-to-br from-white via-white to-green-50/90 rounded-2xl p-5 border border-green-200 shadow-xs hover:border-green-500 hover:shadow-md transition flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <div class="w-11 h-11 rounded-xl bg-green-100 text-green-700 border border-green-200 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-network-wired"></i>
+              </div>
+              <span class="text-xs font-heading font-semibold bg-green-100 text-green-800 px-2.5 py-1 rounded-full border border-green-200">บทที่ 9 • 25 ข้อ</span>
+            </div>
+            <h3 class="text-base font-bold font-heading text-slate-800 group-hover:text-green-700 transition">บทที่ 9: ระบบสารสนเทศ (MIS)</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              บทบาทระบบสารสนเทศ ระบบ ERP การทำงานร่วมกัน (Collaboration) และรูปแบบธุรกิจ E-Commerce (5 บท • 25 ข้อ)
+            </p>
+          </div>
+          <div class="pt-3 border-t border-green-100 flex items-center justify-between text-xs font-heading font-semibold text-green-700">
+            <span><i class="fa-solid fa-leaf mr-1 text-green-500"></i>แผนภาพ + 25 ข้อ</span>
+            <span class="px-3 py-1.5 bg-green-700 text-white rounded-xl group-hover:bg-green-800 transition">เข้าสู่บทที่ 9 <i class="fa-solid fa-arrow-right ml-1"></i></span>
+          </div>
+        </div>
+
+        <!-- Chapter 10: HRM (Meadow Olive-Lime) -->
+        <div onclick="selectChapter('ch10')" class="group cursor-pointer bg-gradient-to-br from-white via-white to-lime-50/90 rounded-2xl p-5 border border-lime-300 shadow-xs hover:border-lime-600 hover:shadow-md transition flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <div class="w-11 h-11 rounded-xl bg-lime-100 text-lime-800 border border-lime-300 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-people-group"></i>
+              </div>
+              <span class="text-xs font-heading font-semibold bg-lime-100 text-lime-900 px-2.5 py-1 rounded-full border border-lime-300">บทที่ 10 • 10 ข้อ</span>
+            </div>
+            <h3 class="text-base font-bold font-heading text-slate-800 group-hover:text-lime-800 transition">บทที่ 10: ทรัพยากรมนุษย์ (HRM)</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              กิจกรรมพื้นฐาน HR 4 บทบาทสำคัญ Fit Model, Job Characteristics Model, Horizontal Fit และค่าตอบแทน (10 ข้อ)
+            </p>
+          </div>
+          <div class="pt-3 border-t border-lime-200 flex items-center justify-between text-xs font-heading font-semibold text-lime-800">
+            <span><i class="fa-solid fa-paw mr-1 text-lime-600"></i>แผนภาพ + 10 ข้อ</span>
+            <span class="px-3 py-1.5 bg-lime-700 text-white rounded-xl group-hover:bg-lime-800 transition">เข้าสู่บทที่ 10 <i class="fa-solid fa-arrow-right ml-1"></i></span>
+          </div>
+        </div>
+
+        <!-- Chapter 11: IBM (Deep Rainforest) -->
+        <div onclick="selectChapter('ch11')" class="group cursor-pointer bg-gradient-to-br from-white via-white to-emerald-100/60 rounded-2xl p-5 border border-emerald-300 shadow-xs hover:border-emerald-700 hover:shadow-md transition flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <div class="w-11 h-11 rounded-xl bg-emerald-900/10 text-emerald-900 border border-emerald-300 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-earth-asia"></i>
+              </div>
+              <span class="text-xs font-heading font-semibold bg-emerald-900 text-white px-2.5 py-1 rounded-full">บทที่ 11 • 30 ข้อ</span>
+            </div>
+            <h3 class="text-base font-bold font-heading text-slate-800 group-hover:text-emerald-900 transition">บทที่ 11: ธุรกิจระหว่างประเทศ (IBM)</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              การค้าเสรี มาตรฐานสากล (ISO/GAP/GMP/HACCP) Incoterms เอกสารส่งออก ตลาดอาเซียน (AEC) และจีน (6 บท • 30 ข้อ)
+            </p>
+          </div>
+          <div class="pt-3 border-t border-emerald-200 flex items-center justify-between text-xs font-heading font-semibold text-emerald-900">
+            <span><i class="fa-solid fa-tree mr-1 text-emerald-700"></i>แผนภาพ + 30 ข้อ</span>
+            <span class="px-3 py-1.5 bg-emerald-900 text-white rounded-xl group-hover:bg-emerald-950 transition">เข้าสู่บทที่ 11 <i class="fa-solid fa-arrow-right ml-1"></i></span>
+          </div>
+        </div>
+
+        <!-- Chapter 12: ETH (Warm Sunlight Earth & Moss) -->
+        <div onclick="selectChapter('ch12')" class="group cursor-pointer bg-gradient-to-br from-white via-white to-amber-50/80 rounded-2xl p-5 border border-amber-200 shadow-xs hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-800 border border-amber-200 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-scale-balanced"></i>
+              </div>
+              <span class="text-xs font-heading font-semibold bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full border border-amber-200">บทที่ 12 • 25 ข้อ</span>
+            </div>
+            <h3 class="text-base font-bold font-heading text-slate-800 group-hover:text-amber-800 transition">บทที่ 12: จริยธรรมทางธุรกิจ (ETH)</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              กฎหมายกับจริยธรรม แนวคิดการจัดการ Ethical Dilemma ปรัชญาจริยธรรม และแบบทดสอบจริยธรรม (5 บท • 25 ข้อ)
+            </p>
+          </div>
+          <div class="pt-3 border-t border-amber-100 flex items-center justify-between text-xs font-heading font-semibold text-amber-800">
+            <span><i class="fa-solid fa-sun mr-1 text-amber-500"></i>แผนภาพ + 25 ข้อ</span>
+            <span class="px-3 py-1.5 bg-amber-700 text-white rounded-xl group-hover:bg-amber-800 transition">เข้าสู่บทที่ 12 <i class="fa-solid fa-arrow-right ml-1"></i></span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Jungle Study Companion Banner -->
+      <div class="relative overflow-hidden bg-gradient-to-r from-emerald-50 via-lime-50 to-teal-50 border-2 border-emerald-300/80 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-start sm:items-center gap-3.5">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-700 to-green-900 text-white flex items-center justify-center text-xl shrink-0 shadow-xs">
+            <i class="fa-solid fa-feather-pointed"></i>
+          </div>
+          <div class="space-y-1">
+            <div class="inline-flex items-center gap-1.5 text-[11px] font-heading font-bold text-emerald-800 bg-emerald-200/70 px-2.5 py-0.5 rounded-full">
+              <i class="fa-solid fa-leaf"></i> คลังข้อสอบครบชุด BUS FOUND
+            </div>
+            <h3 class="text-base sm:text-lg font-bold font-heading text-slate-800">ครบทั้ง 125 ข้อ จากเอกสารรวมข้อสอบท้ายบท</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              รองรับทั้งโหมด <strong>เฉลยเลยทันที</strong> เพื่อทบทวนคำอธิบายทีละข้อ และโหมด <strong>ทำหมดแล้วค่อยเฉลย</strong> สำหรับจำลองการสอบจริง พร้อมปุ่มคีย์ลัด (1-5, ลูกศรซ้าย/ขวา, B ปักหมุด)
+            </p>
+          </div>
+        </div>
+        <button onclick="selectChapter('ch7')" class="w-full sm:w-auto px-5 py-3 bg-gradient-to-r from-emerald-700 to-green-900 hover:from-emerald-800 hover:to-green-950 active:scale-95 text-white font-heading font-bold rounded-xl text-xs sm:text-sm transition shadow-sm flex items-center justify-center gap-2 shrink-0">
+          <i class="fa-solid fa-play"></i>
+          <span>เริ่มตะลุยบทที่ 7</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- VIEW 1: UNIFIED CHAPTER OVERVIEW + VISUAL SUMMARY -->
+    <!-- ================================================================= -->
+    <section id="viewOverview" class="hidden space-y-6 max-w-4xl mx-auto">
+      <!-- Dynamic Hero Banner -->
+      <div id="overviewHeroBox" class="relative overflow-hidden bg-gradient-to-br from-emerald-800 via-green-800 to-teal-950 text-white rounded-3xl p-5 sm:p-8 shadow-md">
+        <svg class="absolute right-0 top-0 h-full w-auto opacity-20 pointer-events-none" viewBox="0 0 340 210" fill="none">
+          <path class="animate-leaf" d="M340 15 C285 20, 245 55, 225 105 C270 85, 310 55, 340 15 Z" fill="#bbf7d0"/>
+          <path d="M340 70 C295 65, 255 95, 240 135 C280 120, 315 100, 340 70 Z" fill="#86efac" opacity="0.7"/>
+          <circle class="animate-firefly" cx="180" cy="60" r="2.5" fill="#fde68a"/>
+          <circle class="animate-firefly" cx="230" cy="145" r="2" fill="#dcfce7" style="animation-delay:1s"/>
+          <path d="M0 195 Q 80 175, 170 195 T 340 185 L 340 210 L 0 210 Z" fill="white" opacity="0.15"/>
+        </svg>
+        <div class="relative z-10 space-y-3 max-w-2xl">
+          <div id="overviewBadge" class="inline-flex items-center space-x-2 px-3 py-1 bg-white/15 text-white rounded-full text-xs font-heading font-semibold tracking-wider border border-white/25"></div>
+          <h2 id="overviewTitle" class="text-xl sm:text-3xl font-bold font-heading leading-tight"></h2>
+          <p id="overviewDesc" class="text-white/90 text-xs sm:text-sm leading-relaxed"></p>
+
+          <div class="pt-2 flex flex-col sm:flex-row gap-2.5 items-center">
+            <button onclick="startQuiz()" class="w-full sm:w-auto px-6 py-3 bg-white text-emerald-950 hover:bg-emerald-50 active:scale-95 font-heading font-bold rounded-xl shadow-sm flex items-center justify-center space-x-2 transition text-sm">
+              <i class="fa-solid fa-play text-emerald-700"></i>
+              <span id="startQuizBtnText">เริ่มทำแบบทดสอบ</span>
+            </button>
+            <a href="#inlineSummarySection" class="w-full sm:w-auto px-5 py-3 bg-black/20 hover:bg-black/30 border border-white/25 text-white font-heading font-medium rounded-xl transition flex items-center justify-center space-x-2 text-sm">
+              <i class="fa-solid fa-seedling text-lime-200"></i>
+              <span>เลื่อนดูสรุปเนื้อหาและแผนภาพด้านล่าง</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Panel -->
+      <div class="jungle-card rounded-2xl border border-emerald-200/80 p-5 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm sm:text-base font-bold font-heading text-slate-800 flex items-center space-x-2">
+            <i class="fa-solid fa-sliders text-emerald-700"></i>
+            <span>ตั้งค่าโหมดก่อนเริ่มทำแบบทดสอบ</span>
+          </h3>
+          <button onclick="startQuiz()" class="text-xs font-heading font-bold text-emerald-700 hover:underline flex items-center gap-1">
+            <span>กดเริ่มสอบทันที</span> <i class="fa-solid fa-play text-[10px]"></i>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="space-y-2">
+            <label class="text-xs font-bold text-slate-500 uppercase tracking-wider block font-heading">การแสดงผลเฉลย:</label>
+            <label id="modeCardInstant" onclick="selectModeRadio('instant')" class="flex items-start space-x-3 p-3 border-2 rounded-xl cursor-pointer transition select-none bg-emerald-50/80 border-emerald-600">
+              <input type="radio" name="feedbackMode" value="instant" checked class="w-4 h-4 mt-0.5 text-emerald-700 accent-emerald-700">
+              <div class="text-xs">
+                <span class="font-bold text-slate-900 font-heading block">โหมดเฉลยเลย (Instant Feedback)</span>
+                <span class="text-slate-600 mt-0.5 block">ตอบปุ๊บรู้ผลปั๊บ พร้อมคำอธิบายหลักการและวิธีคำนวณละเอียด</span>
+              </div>
+            </label>
+            <label id="modeCardExam" onclick="selectModeRadio('exam')" class="flex items-start space-x-3 p-3 border-2 rounded-xl cursor-pointer transition select-none bg-white border-slate-200 hover:border-emerald-300">
+              <input type="radio" name="feedbackMode" value="exam" class="w-4 h-4 mt-0.5 text-emerald-700 accent-emerald-700">
+              <div class="text-xs">
+                <span class="font-bold text-slate-800 font-heading block">โหมดทำหมดแล้วค่อยเฉลย (Exam Mode)</span>
+                <span class="text-slate-500 mt-0.5 block">ทำครบทุกข้อก่อนแล้วตรวจคะแนนและดูเฉลยพร้อมกันตอนจบ</span>
+              </div>
+            </label>
+          </div>
+
+          <div class="space-y-2">
+            <label class="text-xs font-bold text-slate-500 uppercase tracking-wider block font-heading">การจับเวลา:</label>
+            <label id="timerCardStopwatch" onclick="selectTimerRadio('stopwatch')" class="flex items-start space-x-3 p-3 border-2 rounded-xl cursor-pointer transition select-none bg-emerald-50/80 border-emerald-600">
+              <input type="radio" name="timerMode" value="stopwatch" checked class="w-4 h-4 mt-0.5 text-emerald-700 accent-emerald-700">
+              <div class="text-xs">
+                <span class="font-bold text-slate-800 font-heading block">จับเวลาเดินหน้า (ไม่กดดัน)</span>
+                <span class="text-slate-500 mt-0.5 block">เหมาะสำหรับฝึกคิดวิเคราะห์และอ่านคำอธิบายทีละข้อ</span>
+              </div>
+            </label>
+            <label id="timerCardCountdown" onclick="selectTimerRadio('countdown')" class="flex items-start space-x-3 p-3 border-2 rounded-xl cursor-pointer transition select-none bg-white border-slate-200 hover:border-emerald-300">
+              <input type="radio" name="timerMode" value="countdown" class="w-4 h-4 mt-0.5 text-emerald-700 accent-emerald-700">
+              <div class="text-xs">
+                <span class="font-bold text-slate-800 font-heading block">นับถอยหลัง 45 นาที</span>
+                <span class="text-slate-500 mt-0.5 block">ฝึกบริหารเวลาจำลองสถานการณ์สอบจริง</span>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- INLINE VISUAL SUMMARY SECTION -->
+      <div id="inlineSummarySection" class="space-y-4 pt-2 scroll-mt-28">
+        <div class="flex flex-wrap items-center justify-between gap-2 jungle-card p-4 rounded-2xl border border-emerald-200/80">
+          <div class="flex items-center space-x-2.5">
+            <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+              <i class="fa-solid fa-leaf text-sm"></i>
+            </div>
+            <div>
+              <h3 id="summaryMainTitle" class="text-sm sm:text-lg font-bold font-heading text-slate-800">สรุปเนื้อหาและแผนภาพช่วยจำ</h3>
+              <p class="text-[11px] text-slate-500">ทบทวนโครงสร้างและแนวคิดสำคัญก่อนเริ่มทำข้อสอบ</p>
+            </div>
+          </div>
+          <button onclick="startQuiz()" id="summaryTopStartBtn" class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs sm:text-sm font-heading font-semibold transition shadow-2xs">
+            <i class="fa-solid fa-pen-to-square mr-1"></i> เริ่มทำข้อสอบบทนี้
+          </button>
+        </div>
+
+        <div id="summaryContentContainer" class="space-y-4"></div>
+
+        <!-- Bottom Start Quiz Call-to-action after reading summary -->
+        <div class="jungle-card border border-emerald-200 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="text-center sm:text-left">
+            <h4 class="font-bold font-heading text-slate-800 text-sm sm:text-base">พร้อมทดสอบความเข้าใจหรือยัง?</h4>
+            <p id="bottomCtaSubtext" class="text-xs text-slate-500">ทำแบบทดสอบพร้อมเฉลยและคำอธิบายอย่างละเอียดทุกข้อ</p>
+          </div>
+          <button onclick="startQuiz()" id="summaryBottomStartBtn" class="w-full sm:w-auto px-6 py-3 bg-emerald-900 hover:bg-emerald-950 text-white font-heading font-bold rounded-xl text-sm transition shadow-xs shrink-0">
+            <i class="fa-solid fa-play mr-1.5"></i> เริ่มทำแบบทดสอบ
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- VIEW 2: QUIZ TAKING INTERFACE -->
+    <!-- ================================================================= -->
+    <section id="viewQuiz" class="hidden space-y-4">
+
+      <!-- MOBILE HORIZONTAL SCROLLER -->
+      <div class="block lg:hidden jungle-card border border-emerald-200/80 rounded-xl p-2.5">
+        <div class="flex items-center justify-between text-xs px-1 mb-1.5">
+          <span id="mobileRangeLabel" class="font-heading font-bold text-slate-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-list-ol text-emerald-600"></i> แผนผังข้อสอบ:
+          </span>
+          <div class="flex items-center gap-2">
+            <button onclick="toggleFeedbackModeLive()" class="px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 text-[11px] text-emerald-900 font-heading font-semibold">
+              <i class="fa-solid fa-bolt text-emerald-600 mr-0.5"></i><span id="mobileLiveModeText">เฉลยเลย</span>
+            </button>
+            <span id="mobileAnsweredBadge" class="text-[11px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-heading font-semibold">
+              ตอบแล้ว 0/0
+            </span>
+          </div>
+        </div>
+        <div id="mobileChipsContainer" class="flex gap-1.5 overflow-x-auto no-scrollbar py-1 px-0.5"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+
+        <!-- LEFT / MAIN: Question Card + Inline Navigation -->
+        <div class="lg:col-span-8 space-y-4 w-full min-w-0">
+
+          <div class="jungle-card border border-emerald-200/80 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2">
+            <span id="questionSectionBadge" class="px-2.5 py-1 text-xs font-heading font-semibold rounded-md bg-emerald-50 text-emerald-900 border border-emerald-200 truncate max-w-[58%]"></span>
+
+            <div class="flex items-center space-x-1.5">
+              <button onclick="toggleScratchpadModal(true)" title="กระดาษทดและเครื่องคิดเลข" class="text-xs font-heading inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg border border-emerald-200 bg-emerald-50/70 text-emerald-900 hover:bg-emerald-100 transition font-semibold">
+                <i class="fa-solid fa-calculator text-emerald-700"></i>
+                <span>เครื่องคิดเลข</span>
+              </button>
+              <button onclick="toggleFlagCurrentQuestion()" id="flagBtn" class="text-xs font-heading inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-100 transition">
+                <i class="fa-regular fa-bookmark"></i>
+                <span>ปักหมุด</span>
+              </button>
+              <button onclick="clearCurrentAnswer()" id="clearBtn" class="text-xs font-heading inline-flex items-center space-x-1 text-slate-400 hover:text-slate-600 transition px-2 py-1">
+                <i class="fa-solid fa-rotate-left"></i>
+                <span>ล้าง</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Question Content Box -->
+          <div id="questionMainCard" class="jungle-card border border-emerald-200/80 rounded-2xl p-4 sm:p-6 animate-card">
+            <div class="flex items-center justify-between gap-3 mb-3.5">
+              <div class="flex items-center space-x-2.5">
+                <span id="currentQuestionNumDisplay" class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-emerald-900 text-white font-heading font-bold text-xs sm:text-sm shrink-0">1</span>
+                <span class="text-xs uppercase tracking-wide text-slate-400 font-heading font-semibold">ข้อที่ <span id="currentQuestionTotalRatio">1 / 10</span></span>
+              </div>
+              <div id="questionFeedbackTag" class="hidden text-xs font-heading font-bold px-2.5 py-1 rounded-full"></div>
+            </div>
+
+            <!-- Question Stem -->
+            <div id="questionText" class="text-slate-800 text-sm sm:text-base md:text-lg font-medium leading-relaxed mb-4 font-heading break-words"></div>
+
+            <!-- Options Container -->
+            <div id="optionsContainer" class="space-y-2.5"></div>
+
+            <!-- Instant Mode Feedback Box -->
+            <div id="instantFeedbackBox" class="hidden mt-5 pt-4 border-t border-slate-200 space-y-3"></div>
+          </div>
+
+          <!-- INLINE NAVIGATION BAR -->
+          <div class="jungle-card border border-emerald-200/80 rounded-2xl p-3">
+            <div class="flex items-center justify-between gap-2">
+              <button id="prevBtn" onclick="prevQuestion()" class="flex-1 sm:flex-initial px-4 py-2.5 border border-slate-300 bg-white hover:bg-slate-50 active:scale-95 text-slate-700 text-xs sm:text-sm font-heading font-semibold rounded-xl transition flex items-center justify-center space-x-1.5 min-h-[44px]">
+                <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                <span>ก่อนหน้า</span>
+              </button>
+
+              <button onclick="toggleMobilePalette(true)" class="px-4 py-2.5 border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 rounded-xl text-xs sm:text-sm font-heading font-bold flex items-center justify-center space-x-1.5 transition min-h-[44px]">
+                <i class="fa-solid fa-table-cells"></i>
+                <span id="centerProgressText">เลือกข้อ (1/10)</span>
+              </button>
+
+              <button id="nextBtn" onclick="nextQuestion()" class="flex-1 sm:flex-initial px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 active:scale-95 text-white text-xs sm:text-sm font-heading font-semibold rounded-xl shadow-2xs transition flex items-center justify-center space-x-1.5 min-h-[44px]">
+                <span>ถัดไป</span>
+                <i class="fa-solid fa-chevron-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT / SIDEBAR (Desktop) -->
+        <div class="hidden lg:block lg:col-span-4 space-y-4">
+          <div class="jungle-card border border-emerald-200/80 rounded-2xl p-5 sticky top-24 max-h-[80vh] overflow-y-auto custom-scroll">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+              <h3 class="font-bold font-heading text-slate-800 text-sm flex items-center space-x-2">
+                <i class="fa-solid fa-table-cells text-emerald-700"></i>
+                <span id="desktopPaletteTitle">แผนผังข้อสอบ</span>
+              </h3>
+              <span id="answeredSummaryBadge" class="text-xs font-heading bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded font-medium">
+                ตอบแล้ว 0/0
+              </span>
+            </div>
+
+            <div id="desktopPaletteSections" class="space-y-4 mb-5"></div>
+
+            <button onclick="promptSubmitQuiz()" class="w-full py-3 bg-emerald-900 hover:bg-emerald-950 active:scale-95 text-white rounded-xl font-heading font-medium text-sm transition shadow-2xs flex items-center justify-center space-x-2">
+              <i class="fa-solid fa-paper-plane text-xs"></i>
+              <span>ส่งข้อสอบเพื่อดูคะแนน</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- VIEW 3: SCORE SUMMARY VIEW -->
+    <!-- ================================================================= -->
+    <section id="viewResult" class="hidden max-w-3xl mx-auto py-2">
+      <div class="jungle-card border border-emerald-200 rounded-3xl p-6 sm:p-8 text-center space-y-5">
+        <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-xs font-heading font-semibold bg-emerald-100 text-emerald-900">
+          <i class="fa-solid fa-circle-check text-emerald-700"></i> ทำแบบทดสอบเสร็จสิ้น
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold font-heading text-slate-800">ผลคะแนนรวมของคุณ</h2>
+
+        <div class="py-5 bg-gradient-to-b from-emerald-50 to-lime-50/60 rounded-2xl border border-emerald-200 max-w-sm mx-auto space-y-1">
+          <div class="text-5xl sm:text-6xl font-extrabold font-heading text-emerald-900" id="resultScoreText">0/10</div>
+          <p id="resultPercentageText" class="text-slate-600 text-xs sm:text-sm font-medium px-3"></p>
+          <p id="resultTimeSpentText" class="text-xs text-slate-400 font-mono"></p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-2.5 pt-2">
+          <button onclick="enterReviewMode()" class="w-full sm:w-auto px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-sm font-heading font-semibold transition shadow-2xs flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-list-check"></i>
+            <span>ดูเฉลยละเอียดทั้งหมด</span>
+          </button>
+          <button onclick="startQuiz()" class="w-full sm:w-auto px-5 py-2.5 bg-lime-700 hover:bg-lime-800 text-white rounded-xl text-sm font-heading font-semibold transition shadow-2xs flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-rotate-right"></i>
+            <span>ทำบทนี้อีกครั้ง</span>
+          </button>
+          <button onclick="goToHome()" class="w-full sm:w-auto px-5 py-2.5 border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 rounded-xl text-sm font-heading font-medium transition flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-house"></i>
+            <span>กลับหน้าหลัก</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- VIEW 4: DETAILED REVIEW -->
+    <!-- ================================================================= -->
+    <section id="viewReview" class="hidden space-y-4 max-w-4xl mx-auto">
+      <div class="jungle-card border border-emerald-200 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sticky top-24 z-30 backdrop-blur-md">
+        <div>
+          <h2 id="reviewHeaderTitle" class="text-base sm:text-lg font-bold font-heading text-slate-800">เฉลยละเอียดครบทุกข้อ</h2>
+          <p class="text-xs text-slate-500">สรุปเหตุผล หลักการทางธุรกิจ และวิธีคำนวณอย่างละเอียด</p>
+        </div>
+        <div class="flex items-center space-x-2 w-full sm:w-auto justify-between sm:justify-end">
+          <div class="inline-flex rounded-lg border border-emerald-200 bg-emerald-50/70 p-1 text-xs font-heading">
+            <button onclick="filterReview('all')" id="filterAllBtn" class="px-3 py-1 font-medium rounded-md bg-white text-slate-800 shadow-2xs">ทั้งหมด</button>
+            <button onclick="filterReview('wrong')" id="filterWrongBtn" class="px-3 py-1 font-medium rounded-md text-slate-600 hover:text-slate-900">เฉพาะข้อผิด</button>
+          </div>
+          <button onclick="goToHome()" class="text-xs font-heading px-3 py-1.5 border border-slate-300 bg-white rounded-lg hover:bg-slate-50 text-slate-700 font-medium">
+            หน้าหลัก
+          </button>
+        </div>
+      </div>
+
+      <div id="reviewQuestionsList" class="space-y-4"></div>
+    </section>
+
+  </main>
+
+  <!-- ================= FLOATING BACK TO TOP BUTTON ================= -->
+  <button
+    id="backToTopBtn"
+    onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    title="เลื่อนกลับขึ้นด้านบน"
+    class="fixed bottom-5 right-5 z-30 w-11 h-11 rounded-2xl bg-emerald-700 hover:bg-emerald-800 text-white shadow-lg border border-emerald-400/30 flex items-center justify-center transition-all duration-300 opacity-0 translate-y-4 pointer-events-none active:scale-95"
+  >
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- ================= QUESTION SELECTOR MODAL ================= -->
+  <div id="mobilePaletteDrawer" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white rounded-t-3xl sm:rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-5 shadow-2xl space-y-4 custom-scroll">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-table-cells text-emerald-700"></i>
+          <h3 class="font-bold font-heading text-slate-800 text-sm sm:text-base">เลือกข้อสอบที่ต้องการ</h3>
+        </div>
+        <button onclick="toggleMobilePalette(false)" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-800 flex items-center justify-center text-sm">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div id="mobilePaletteSections" class="space-y-4"></div>
+
+      <div class="pt-3 border-t border-slate-100">
+        <button onclick="toggleMobilePalette(false); promptSubmitQuiz();" class="w-full py-3 bg-emerald-900 hover:bg-emerald-950 text-white rounded-xl text-sm font-heading font-semibold flex items-center justify-center space-x-2">
+          <i class="fa-solid fa-paper-plane text-xs"></i>
+          <span>ส่งแบบทดสอบ</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SCRATCHPAD & CALCULATOR MODAL ================= -->
+  <div id="scratchpadModal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4" onclick="if(event.target === this) toggleScratchpadModal(false)">
+    <div class="bg-white border border-emerald-200 rounded-3xl max-w-sm w-full p-5 shadow-2xl space-y-4 animate-card">
+      <div class="flex items-center justify-between border-b border-emerald-100 pb-2.5">
+        <div class="flex items-center space-x-2">
+          <div class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+            <i class="fa-solid fa-calculator text-xs"></i>
+          </div>
+          <h3 class="font-bold font-heading text-slate-800 text-sm">เครื่องคิดเลข & กระดาษทด</h3>
+        </div>
+        <button onclick="toggleScratchpadModal(false)" class="w-7 h-7 rounded-full bg-slate-100 text-slate-600 hover:text-slate-900 flex items-center justify-center text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Mini Calculator -->
+      <div class="bg-gradient-to-b from-emerald-50 to-lime-50/60 p-3.5 rounded-2xl border border-emerald-200 space-y-2.5">
+        <div class="relative">
+          <div id="calcHistoryLine" class="text-right font-mono text-[11px] text-emerald-700 h-4 truncate px-1"></div>
+          <input id="calcDisplay" type="text" readonly value="0" class="w-full text-right font-mono text-2xl font-bold bg-white border border-emerald-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none shadow-2xs">
+        </div>
+        <div class="grid grid-cols-4 gap-1.5 font-heading font-bold text-sm">
+          <button onclick="calcClear()" class="py-2.5 rounded-xl bg-amber-100 text-amber-900 hover:bg-amber-200 transition">C</button>
+          <button onclick="calcBackspace()" class="py-2.5 rounded-xl bg-emerald-100 text-emerald-900 hover:bg-emerald-200 transition"><i class="fa-solid fa-delete-left"></i></button>
+          <button onclick="calcInput('%')" class="py-2.5 rounded-xl bg-white text-slate-700 border border-emerald-200 hover:bg-emerald-50 transition">%</button>
+          <button onclick="calcInput('/')" class="py-2.5 rounded-xl bg-emerald-200 text-emerald-950 hover:bg-emerald-300 transition">÷</button>
+
+          <button onclick="calcInput('7')" class="py-2.5 rounded-xl bg-white text-slate-800 border border-emerald-100 hover:bg-emerald-50 transition">7</button>
+          <button onclick="calcInput('8')" class="py-2.5 rounded-xl bg-white text-slate-800 border border-emerald-100 hover:bg-emerald-50 transition">8</button>
+          <button onclick="calcInput('9')" class="py-2.5 rounded-xl bg-white text-slate-800 border border-emerald-100 hover:bg-emerald-50 transition">9</button>
+          <button onclick="calcInput('*')" class="py-2.5 rounded-xl bg-emerald-200 text-emerald-950 hover:bg-emerald-300 transition">×</button>
+
+          <button onclick="calcInput('4')" class="py-2.5 rounded-xl bg-white text-slate-800 border border-emerald-100 hover:bg-emerald-50 transition">4</button>
+          <button onclick="calcInput('5')" class="py-2.5 rounded-xl bg-white text-slate-800 border border-emerald-100 hover:bg-emerald-50 transition">5</button>
+          <button onclick="calcInput('6')" class="py-2.5 rounded-xl bg-white text-slate-800 border border-emerald-100 hover:bg-emerald-50 transition">6</button>
+          <button onclick="calcInput('-')" class="py-2.5 rounded-xl bg-emerald-200 text-emerald-950 hover:bg-emerald-300 transition">−</button>
+
+          <button onclick="calcInput('1')" class="py-2.5 rounded-xl bg-white text-slate-800 border border-emerald-100 hover:bg-emerald-50 transition">1</button>
+          <button onclick="calcInput('2')" class="py-2.5 rounded-xl bg-white text-slate-800 border border-emerald-100 hover:bg-emerald-50 transition">2</button>
+          <button onclick="calcInput('3')" class="py-2.5 rounded-xl bg-white text-slate-800 border border-emerald-100 hover:bg-emerald-50 transition">3</button>
+          <button onclick="calcInput('+')" class="py-2.5 rounded-xl bg-emerald-200 text-emerald-950 hover:bg-emerald-300 transition">+</button>
+
+          <button onclick="calcInput('0')" class="col-span-2 py-2.5 rounded-xl bg-white text-slate-800 border border-emerald-100 hover:bg-emerald-50 transition">0</button>
+          <button onclick="calcInput('.')" class="py-2.5 rounded-xl bg-white text-slate-800 border border-emerald-100 hover:bg-emerald-50 transition">.</button>
+          <button onclick="calcEvaluate()" class="py-2.5 rounded-xl bg-emerald-900 text-white hover:bg-emerald-950 transition">=</button>
+        </div>
+      </div>
+
+      <!-- Freehand Text Scratchpad -->
+      <div class="space-y-1">
+        <div class="flex items-center justify-between text-xs">
+          <span class="font-bold text-slate-700 font-heading"><i class="fa-solid fa-pen-clip text-emerald-600 mr-1"></i>พื้นที่จดทดเลข:</span>
+          <button onclick="document.getElementById('scratchpadNotes').value=''" class="text-[11px] text-amber-700 hover:underline font-medium">ล้างกระดาษทด</button>
+        </div>
+        <textarea id="scratchpadNotes" rows="3" placeholder="จดสูตร PV / FV / ROA หรือโน้ตช่วยจำตรงนี้ได้เลย..." class="w-full p-2.5 rounded-xl bg-slate-50 border border-emerald-200 text-xs text-slate-800 font-mono focus:outline-none focus:ring-2 focus:ring-emerald-400"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: SUBMISSION CONFIRMATION ================= -->
+  <div id="submitModal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-5 shadow-xl border border-emerald-200 text-center space-y-3">
+      <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-xl mx-auto">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <h3 class="text-base font-bold font-heading text-slate-900">ยืนยันการส่งแบบทดสอบ?</h3>
+      <p id="submitModalMessage" class="text-xs sm:text-sm text-slate-600 leading-relaxed"></p>
+      <div class="flex space-x-2.5 pt-2">
+        <button onclick="closeSubmitModal()" class="flex-1 py-2.5 border border-slate-300 rounded-xl text-slate-700 text-xs sm:text-sm font-heading font-medium hover:bg-slate-50">ทำต่อ</button>
+        <button onclick="finalSubmitQuiz()" class="flex-1 py-2.5 bg-emerald-900 hover:bg-emerald-950 text-white rounded-xl text-xs sm:text-sm font-heading font-semibold">ยืนยันส่ง</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOAST NOTIFICATION ================= -->
+  <div id="toastBanner" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-2xl bg-emerald-950 text-white text-xs font-heading font-semibold shadow-xl border border-emerald-700 flex items-center gap-2 transition-all duration-300 opacity-0 pointer-events-none">
+    <i class="fa-solid fa-leaf text-lime-400"></i>
+    <span id="toastBannerText">แจ้งเตือน</span>
+  </div>
+
+  <script>
+    const LETTERS = ['ก', 'ข', 'ค', 'ง', 'จ'];
+    const Q = (id, section, sectionTitle, text, options, correctIndex, explanation, calculation = null) => ({
+      id, section, sectionTitle, text, options, correctIndex,
+      answerKey: LETTERS[correctIndex] || String(correctIndex + 1),
+      explanation, calculation
+    });
+
+    const database = {
+      // =========================================================================
+      // CHAPTER 7: FIN MAN (10 QUESTIONS)
+      // =========================================================================
+      ch7: {
+        heroGradient: "from-emerald-800 via-green-700 to-teal-800",
+        badge: '<i class="fa-solid fa-coins mr-1.5"></i> บทที่ 7 • การบริหารการเงิน (FIN MAN)',
+        title: "บทที่ 7: การบริหารการเงิน (Financial Management)",
+        desc: "บทบาทของผู้บริหารการเงิน ความแตกต่างระหว่างราคาและมูลค่า (Price vs Value) มูลค่าเงินตามเวลา (PV, FV, PMT) การประเมินมูลค่าหุ้น และงบการเงินประมาณการ",
+        sections: [
+          { id: 1, title: "หมวดวิชา FIN MAN (ข้อ 1 - 10)" }
+        ],
+        summaryHTML: `
+          <div class="jungle-card p-5 rounded-2xl border border-emerald-200 space-y-3">
+            <h4 class="font-bold text-emerald-900 font-heading text-sm sm:text-base flex items-center gap-2">
+              <i class="fa-solid fa-seedling text-emerald-600"></i> สรุปสูตรสำคัญ: มูลค่าเงินตามเวลา & การประเมินมูลค่าหุ้น
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+              <div class="p-3 rounded-xl bg-emerald-50/80 border border-emerald-200 space-y-1">
+                <strong class="text-emerald-900 block font-heading">1. มูลค่าปัจจุบัน (PV) & อนาคต (FV)</strong>
+                <p class="font-mono text-emerald-800">FV = PV × (1 + r)^n</p>
+                <p class="font-mono text-emerald-800">PV = FV / (1 + r)^n</p>
+                <p class="text-slate-600">เงินวันนี้มีค่ามากกว่าเงินในอนาคต เพราะนำไปลงทุนต่อให้เกิดผลตอบแทนได้</p>
+              </div>
+              <div class="p-3 rounded-xl bg-lime-50/80 border border-lime-200 space-y-1">
+                <strong class="text-lime-900 block font-heading">2. เงินงวดเท่ากัน (PMT) & มูลค่าหุ้น (P0)</strong>
+                <p class="font-mono text-lime-800">PMT = (PV × r) / [1 - (1 + r)^(-n)]</p>
+                <p class="font-mono text-lime-800">P0 = D1 / (r - g)  (Gordon Growth Model)</p>
+                <p class="text-slate-600">โดย D1 = เงินปันผลปีหน้า, r = ผลตอบแทนที่ต้องการ, g = อัตราเติบโต</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+            <div class="jungle-card p-5 rounded-2xl border border-emerald-200/80 space-y-2">
+              <h4 class="font-bold text-emerald-900 font-heading text-base flex items-center gap-2">
+                <i class="fa-solid fa-compass text-emerald-600"></i> 3 หน้าที่หลักของผู้บริหารการเงิน
+              </h4>
+              <ul class="space-y-1.5 text-xs text-slate-700 list-disc pl-4">
+                <li><strong>การตัดสินใจลงทุน (Capital Budgeting):</strong> ประเมินความเป็นไปได้ของโครงการ</li>
+                <li><strong>การจัดหาเงินทุน (Financing):</strong> เลือกแหล่งเงินทุน (หนี้สิน/ทุน) ที่ต้นทุนเหมาะสม</li>
+                <li><strong>การวัดผลและบริหารสภาพคล่อง:</strong> ดูแลเงินทุนหมุนเวียน (ส่วนการกำหนดกลุ่มลูกค้าเป้าหมายเป็นหน้าที่ของการตลาด)</li>
+              </ul>
+            </div>
+            <div class="jungle-card p-5 rounded-2xl border border-emerald-200/80 space-y-2">
+              <h4 class="font-bold text-emerald-900 font-heading text-base flex items-center gap-2">
+                <i class="fa-solid fa-scale-balanced text-emerald-600"></i> สมการบัญชีใน Pro-forma & กระแสเงินสด
+              </h4>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                <strong>สินทรัพย์ = หนี้สิน + ส่วนของเจ้าของ</strong> หากสินทรัพย์ฝั่งซ้ายมากกว่าฝั่งขวา ต้องปรับสมดุลโดย <em>ลดสินทรัพย์</em> (เช่น ลดการซื้อวัตถุดิบล่วงหน้า) หรือ <em>เพิ่มหนี้สิน/ทุน</em> และ<strong>ค่าเสื่อมราคา</strong>เป็นค่าใช้จ่ายที่ไม่ใช่เงินสด จึงทำให้กระแสเงินสดสูงกว่ากำไรทางบัญชีได้
+              </p>
+            </div>
+          </div>`,
+        questions: [
+          Q(1, 1, "หมวดวิชา FIN MAN", "ข้อใดในต่อไปนี้ ไม่ใช่หน้าที่ของผู้บริหารด้านการเงิน", ["การกำหนดกลุ่มลูกค้าเป้าหมาย", "การประเมินความเป็นไปได้ในการลงทุน", "การเลือกแหล่งเงินทุนเพื่อระดมเงินทุน", "การวัดผลการดำเนินงานของธุรกิจ"], 0, "การกำหนดกลุ่มลูกค้าเป้าหมาย (Target Market / STP) เป็นหน้าที่หลักของฝ่ายการตลาด (Marketing) ไม่ใช่หน้าที่ของผู้บริหารด้านการเงิน ซึ่งดูแลด้านการลงทุน การจัดหาเงินทุน และการวัดผลการดำเนินงานทางการเงิน"),
+          Q(2, 1, "หมวดวิชา FIN MAN", "ข้อใดในต่อไปนี้ ไม่สอดคล้องกับความหมายของวลี \"Price is what you pay. Value is what you get.\"", ["ทุกสิ่งสามารถมีราคาได้หมด แม้ว่าสิ่งนั้นจะไม่มีมูลค่าก็ตาม", "การลงทุนที่ดีคือการสะสมสิ่งที่มีราคาสูงขึ้นเรื่อยๆ อย่างเช่นทองคำ", "สินค้าราคาแพงคือสินค้าที่ราคาสูงกว่ามูลค่า แม้ว่าจะมีราคาเพียงไม่กี่บาทก็ตาม", "การลงทุนที่คุ้มค่าคือการลงทุนที่มูลค่ารวมของผลประโยชน์มากกว่าเงินลงทุน"], 1, "วลีของ Warren Buffett หมายความว่า 'ราคา' คือสิ่งที่เราจ่ายออกไป ส่วน 'มูลค่า' คือประโยชน์ที่ได้รับกลับมา ดังนั้นการลงทุนที่ดีต้องดูที่มูลค่าที่แท้จริงเทียบกับราคา ไม่ใช่การเก็งกำไรสะสมสิ่งของเพียงเพราะราคาปรับตัวสูงขึ้นเรื่อยๆ"),
+          Q(3, 1, "หมวดวิชา FIN MAN", "หากอัตราผลตอบแทนในปัจจุบันเท่ากับ 8% มูลค่าของเงิน 10,000 ในอีก 3 ปีข้างหน้า (t=3) เท่ากับเท่าไร (หมายเหตุ: ตามตัวเลือกที่ติ๊กในเอกสารคือ 7,938 ซึ่งเป็นการคิดลดมูลค่าปัจจุบัน PV)", ["7,938", "8,573", "9,259", "10,800"], 0, "เป็นการหามูลค่าปัจจุบัน (Present Value: PV) ของเงิน 10,000 บาทที่จะได้รับในอีก 3 ปีข้างหน้า ณ อัตราคิดลด 8% ต่อปี", "PV = FV / (1 + r)^n\nPV = 10,000 / (1 + 0.08)^3\nPV = 10,000 / 1.259712 ≈ 7,938.32 บาท (ตอบ 7,938)"),
+          Q(4, 1, "หมวดวิชา FIN MAN", "ณัฐธิชาได้รับเงินโบนัสมาจำนวน 200,000 บาท และต้องการนำเงินก้อนนี้ไปลงทุนต่อ หากการลงทุนสามารถสร้างอัตราผลตอบแทนได้ 6% ต่อปี เงินโบนัสก้อนนี้จะมีมูลค่าเท่าไรในอีก 20 ปีข้างหน้า", ["440,000", "641,427", "2,293,984", "4,000,000"], 1, "เป็นการคำนวณหามูลค่าอนาคต (Future Value: FV) ด้วยการทบต้น 6% ต่อปี เป็นเวลา 20 ปี", "FV = PV × (1 + r)^n\nFV = 200,000 × (1.06)^20\nFV = 200,000 × 3.207135 ≈ 641,427 บาท"),
+          Q(5, 1, "หมวดวิชา FIN MAN", "บริษัท ABC กู้เงินจากธนาคารเพื่อเป็นเงินทุนหมุนเวียนจำนวน 20 ล้านบาท และวางแผนจะชำระคืนใน 8 ปี เป็น 8 งวด ที่จำนวนเท่ากัน หากอัตราดอกเบี้ย 12% บริษัท ABC ต้องชำระหนี้งวดละเท่าไร", ["1,626,057", "2,500,000", "4,026,057", "8,077,665"], 2, "เป็นการหาค่างวดที่จ่ายเท่ากันทุกงวด (Annuity Payment: PMT) จากเงินกู้ PV = 20,000,000 บาท, r = 12%, n = 8 งวด", "PMT = (PV × r) / [1 - (1 + r)^(-n)]\nPMT = (20,000,000 × 0.12) / [1 - (1.12)^(-8)]\nPMT = 2,400,000 / (1 - 0.403883)\nPMT = 2,400,000 / 0.596117 ≈ 4,026,057 บาท"),
+          Q(6, 1, "หมวดวิชา FIN MAN", "บริษัท ABC กู้เงินจากธนาคารเพื่อเป็นเงินทุนหมุนเวียนจำนวน 20 ล้านบาท และวางแผนจะชำระคืนใน 8 ปี เป็น 8 งวด ที่จำนวนเท่ากัน หากอัตราดอกเบี้ย 12% บริษัท ABC ต้องชำระดอกเบี้ยทั้งหมดตลอดระยะเวลา 8 ปี รวมเป็นจำนวนเท่าไร", ["12,208,455", "19,200,000", "20,000,000", "32,208,455"], 0, "นำยอดชำระรวมตลอด 8 ปี (8 งวด × ค่างวด) ลบด้วยเงินต้นที่กู้มา 20,000,000 บาท จะได้ดอกเบี้ยจ่ายรวมทั้งหมด", "ยอดชำระรวม = 4,026,056.87 × 8 = 32,208,455 บาท\nดอกเบี้ยรวม = 32,208,455 - 20,000,000 = 12,208,455 บาท"),
+          Q(7, 1, "หมวดวิชา FIN MAN", "ข้อใดในต่อไปนี้ สามารถส่งผลให้อัตราดอกเบี้ยเงินกู้ลดลงได้", ["มีประวัติการเงินที่ดี เช่น ไม่เคยผิดนัดชำระหนี้", "วางสินทรัพย์เป็นหลักประกัน เช่น ที่ดิน อุปกรณ์", "มีรายได้ประจำเป็นหลักแหล่ง เช่น ทำงานประจำกับบริษัทที่มั่นคง", "ถูกทุกข้อ"], 3, "ประวัติการชำระหนี้ที่ดี การมีหลักทรัพย์ค้ำประกัน และความมั่นคงของรายได้ ล้วนช่วยลดความเสี่ยงด้านเครดิต (Credit Risk) ของผู้กู้ ทำให้ธนาคารคิดอัตราดอกเบี้ยเงินกู้ต่ำลงได้"),
+          Q(8, 1, "หมวดวิชา FIN MAN", "บริษัท DEF ต้องการจะขายหุ้นเพื่อเพิ่มทุนจึงต้องการประเมินมูลค่าหุ้น หากบริษัทคาดว่าปีหน้าจะสามารถจ่ายปันผลได้ 5 บาทต่อหุ้น และจะเพิ่มขึ้นปีละ 4% หากนักลงทุนต้องการผลตอบแทน 9% มูลค่าของหุ้นคือเท่าไร", ["100 บาท", "38.46 บาท", "55.55 บาท", "125 บาท"], 0, "ใช้แบบจำลองการเติบโตของเงินปันผลคงที่ (Gordon Growth Model) เพื่อประเมินมูลค่าหุ้นสามัญ", "P0 = D1 / (r - g)\nP0 = 5 / (0.09 - 0.04) = 5 / 0.05 = 100 บาท"),
+          Q(9, 1, "หมวดวิชา FIN MAN", "โสภิตนภาต้องการเปิดร้านอาหาร จึงประมาณการงบการเงินของกิจการ (pro-forma financial statements) ตามแผนธุรกิจที่วางไว้ โสภิตนภาพบว่าสินทรัพย์ (สมการฝั่งซ้าย) ตามแผนการที่วางไว้มากกว่าหนี้สินและส่วนของเจ้าของ (สมการฝั่งขวา) โสภิตนภาควรจะปรับแผนธุรกิจเช่นไร", ["เพิ่มสินทรัพย์ถาวร เช่น อุปกรณ์ตกแต่งร้าน", "ลดสินทรัพย์หมุนเวียน เช่น วัตถุดิบที่ซื้อเพื่อล่วงหน้า", "ลดหนี้สินหมุนเวียน เช่น การซื้อสินค้าด้วยการผ่อนชำระ", "ลดการระดมทุน เช่น เงินกู้ยืมจากธนาคารหรือหุ้นส่วนในกิจการ", "ตั้งราคาอาหารสูงกว่าคู่แข่ง"], 1, "ตามสมการบัญชี สินทรัพย์ = หนี้สิน + ส่วนของเจ้าของ หากฝั่งซ้าย (สินทรัพย์) มากกว่าฝั่งขวา แสดงว่าต้องลดสินทรัพย์ลง (เช่น ลดการซื้อวัตถุดิบล่วงหน้า) หรือเพิ่มหนี้สิน/ส่วนของเจ้าของให้สมดุลกัน"),
+          Q(10, 1, "หมวดวิชา FIN MAN", "ตามประมาณการงบการเงินของกิจการของโสภิตนภา พบว่าร้านอาหารมีกำไรไม่มากนัก แต่กระแสเงินสดของร้านสูงกว่ากำไร ข้อใดในต่อไปนี้เป็นสาเหตุ", ["ควบคุมต้นทุนการดำเนินงานได้ดีกว่าที่วางแผนไว้", "ค่าใช้จ่ายจำนวนมากเป็นค่าเสื่อมราคาที่จ่ายล่วงหน้าไปแล้ว", "ถูกทุกข้อ"], 1, "ค่าเสื่อมราคา (Depreciation) เป็นค่าใช้จ่ายทางบัญชีที่หักลดกำไรสุทธิ แต่ไม่ได้มีการจ่ายเงินสดออกไปจริงในงวดนั้น (Non-cash Expense) จึงทำให้กระแสเงินสดจากการดำเนินงานสูงกว่ากำไรสุทธิได้")
+        ]
+      },
+
+      // =========================================================================
+      // CHAPTER 8: SPC (25 QUESTIONS)
+      // =========================================================================
+      ch8: {
+        heroGradient: "from-teal-800 via-emerald-800 to-green-900",
+        badge: '<i class="fa-solid fa-truck-fast mr-1.5"></i> บทที่ 8 • โซ่อุปทานและโลจิสติกส์ (SPC)',
+        title: "บทที่ 8: การจัดการโซ่อุปทานและโลจิสติกส์ (SPC)",
+        desc: "ความหมายของโลจิสติกส์และโซ่อุปทาน การไหลเวียนสินค้าและข้อมูล โลจิสติกส์ย้อนกลับ Outsourcing ปรากฏการณ์แส้ม้า VMI, JIT และกรณีศึกษา Walmart / Zara",
+        sections: [
+          { id: 1, title: "ชุดที่ 1 (ข้อ 1 - 5)" },
+          { id: 2, title: "ชุดที่ 2 (ข้อ 6 - 10)" },
+          { id: 3, title: "ชุดที่ 3 (ข้อ 11 - 15)" },
+          { id: 4, title: "ชุดที่ 4 (ข้อ 16 - 20)" },
+          { id: 5, title: "ชุดที่ 5 (ข้อ 21 - 25)" }
+        ],
+        summaryHTML: `
+          <div class="jungle-card p-5 rounded-2xl border border-teal-200 space-y-3">
+            <h4 class="font-bold text-teal-900 font-heading text-sm sm:text-base flex items-center gap-2">
+              <i class="fa-solid fa-route text-teal-600"></i> แผนภาพการไหลในโซ่อุปทาน (Supply Chain Flow)
+            </h4>
+            <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-heading font-semibold">
+              <span class="px-3 py-2 rounded-xl bg-teal-100 text-teal-900 border border-teal-300">ซัพพลายเออร์ (ต้นน้ำ)</span>
+              <i class="fa-solid fa-arrow-right text-teal-600"></i>
+              <span class="px-3 py-2 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300">โรงงานผลิต</span>
+              <i class="fa-solid fa-arrow-right text-teal-600"></i>
+              <span class="px-3 py-2 rounded-xl bg-green-100 text-green-900 border border-green-300">คลัง / ค้าส่ง-ปลีก</span>
+              <i class="fa-solid fa-arrow-right text-teal-600"></i>
+              <span class="px-3 py-2 rounded-xl bg-lime-100 text-lime-900 border border-lime-300">ผู้บริโภค (ปลายน้ำ)</span>
+            </div>
+            <p class="text-xs text-slate-600 text-center">สิ่งสำคัญที่ไหลเวียนในโซ่อุปทาน คือ <strong>สินค้า (Physical)</strong>, <strong>ข้อมูล (Information)</strong> และ <strong>การเงิน</strong> (ไม่ใช่ตัวรถขนส่ง)</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+            <div class="jungle-card p-5 rounded-2xl border border-teal-200/80 space-y-2">
+              <h4 class="font-bold text-teal-900 font-heading text-base flex items-center gap-2">
+                <i class="fa-solid fa-arrows-spin text-teal-600"></i> แนวคิดสำคัญในโลจิสติกส์
+              </h4>
+              <ul class="space-y-1.5 text-xs text-slate-700 list-disc pl-4">
+                <li><strong>โลจิสติกส์ ≠ การขนส่งอย่างเดียว:</strong> รวมการวางแผน การจัดเก็บ บรรจุภัณฑ์ และเคลื่อนย้าย</li>
+                <li><strong>Bullwhip Effect (แส้ม้า):</strong> เกิดจากขาดการวางแผนและแลกเปลี่ยนข้อมูลร่วมกันในโซ่อุปทาน</li>
+                <li><strong>VMI (Vendor Managed Inventory):</strong> ซัพพลายเออร์เข้ามาช่วยบริหารสินค้าคงคลัง</li>
+                <li><strong>Reverse Logistics:</strong> นำสินค้าที่ไม่ใช้/เสียหายกลับสู่ต้นทาง ช่วยลดปัญหาสิ่งแวดล้อม</li>
+              </ul>
+            </div>
+            <div class="jungle-card p-5 rounded-2xl border border-teal-200/80 space-y-2">
+              <h4 class="font-bold text-teal-900 font-heading text-base flex items-center gap-2">
+                <i class="fa-solid fa-boxes-stacked text-teal-600"></i> กลยุทธ์กรณีศึกษา & JIT
+              </h4>
+              <ul class="space-y-1.5 text-xs text-slate-700 list-disc pl-4">
+                <li><strong>JIT (Just-In-Time):</strong> ลดเวลารอคอย ลดสินค้าคงคลัง เพิ่มคุณภาพสินค้า</li>
+                <li><strong>Walmart:</strong> เน้นความหลากหลายของสินค้า + ราคาถูก และมีสินค้าเผื่อในคลังให้เลือก</li>
+                <li><strong>Zara:</strong> มีโรงงานผลิตเอง ทำให้ผลิตได้หลากหลาย คุมคุณภาพ และลดเวลาผลิต</li>
+                <li><strong>องค์การเภสัชกรรม:</strong> มุ่งเน้นลดปริมาณการเก็บสินค้าคงคลัง</li>
+              </ul>
+            </div>
+          </div>`,
+        questions: [
+          // ชุดที่ 1
+          Q(1, 1, "ชุดที่ 1: พื้นฐานโลจิสติกส์และโซ่อุปทาน", "ข้อใดไม่ถูกต้องถ้ากล่าวถึงคำว่าโลจิสติกส์", ["โลจิสติกส์คือการขนส่ง", "การวางแผนมีส่วนสำคัญในการจัดการโลจิสติกส์", "ธุรกิจใช้โลจิสติกส์ในการสร้างความได้เปรียบในการแข่งขัน", "ทุกข้อกล่าวถูกต้อง"], 0, "โลจิสติกส์ไม่ได้หมายถึงแค่การขนส่ง (Transportation) เพียงอย่างเดียว แต่ครอบคลุมถึงการวางแผน การจัดซื้อ การจัดเก็บสินค้าในคลัง การบรรจุภัณฑ์ และการเคลื่อนย้ายข้อมูลอย่างมีประสิทธิภาพ"),
+          Q(2, 1, "ชุดที่ 1: พื้นฐานโลจิสติกส์และโซ่อุปทาน", "การจัดการโลจิสติกส์ตรงกับข้อใดมากที่สุด", ["เชื่อมโยงระหว่างผู้ซื้อผู้ขาย", "ตอบสนองความต้องการของผู้บริโภค", "ใช้ข้อมูลอย่างถูกต้อง", "ทำให้การไหลเวียนและการจัดเก็บสินค้ามีประสิทธิภาพดี"], 3, "หัวใจของการจัดการโลจิสติกส์คือการวางแผน ดำเนินการ และควบคุมการไหลเวียนและการจัดเก็บสินค้า บริการ และข้อมูลจากจุดเริ่มต้นไปยังจุดบริโภคให้มีประสิทธิภาพสูงสุด"),
+          Q(3, 1, "ชุดที่ 1: พื้นฐานโลจิสติกส์และโซ่อุปทาน", "โซ่อุปทานที่ดีควรมีลักษณะใด", ["มีการร่วมมือกันภายในโซ่อุปทาน", "ทุกคนได้รับผลประโยชน์ร่วมกัน", "ตอบสนองความต้องการของผู้บริโภค", "ถูกทุกข้อ"], 3, "โซ่อุปทาน (Supply Chain) ที่มีประสิทธิภาพต้องอาศัยความร่วมมือของทุกภาคส่วน สร้างประโยชน์ร่วมกัน (Win-Win) และมุ่งตอบสนองความต้องการของลูกค้าปลายทาง"),
+          Q(4, 1, "ชุดที่ 1: พื้นฐานโลจิสติกส์และโซ่อุปทาน", "ในโซ่อุปทานของสินค้าหนึ่งๆ ควรเริ่มต้นที่ข้อใด", ["ร้านค้าปลีก", "ซัพพลายเออร์", "โรงงาน", "ค้าส่ง"], 1, "โซ่อุปทานเริ่มต้นจากต้นน้ำคือ ซัพพลายเออร์ (ผู้จัดหาวัตถุดิบ) ส่งต่อไปยังโรงงานผลิต ค้าส่ง ค้าปลีก และถึงมือผู้บริโภคเป็นลำดับสุดท้าย"),
+          Q(5, 1, "ชุดที่ 1: พื้นฐานโลจิสติกส์และโซ่อุปทาน", "บริษัทแห่งหนึ่งมียอดขาย 20 ล้านบาทต่อปี โดยมีค่าใช้จ่ายดำเนินงาน 17 ล้านบาท บริษัทมีสินค้าคงคลังโดยเฉลี่ย 25 ล้านบาท และมีค่าใช้จ่ายในการเก็บรักษาสินค้าอยู่ที่ 20 เปอร์เซ็นต์ต่อปี ถ้าบริษัทมีสินทรัพย์ไม่หมุนเวียนอยู่ 25 ล้านบาท จงหาว่าบริษัทมีค่า Return on Asset เท่าไร", ["0.07", "0.09", "0.15", "0.20"], 1, "คำนวณอัตราผลตอบแทนจากสินทรัพย์ (ROA = กำไรสุทธิ / สินทรัพย์รวม) โดยสินทรัพย์รวมประกอบด้วย สินค้าคงคลังเฉลี่ย (25 ล้านบาท) + สินทรัพย์ไม่หมุนเวียน (25 ล้านบาท) = 50 ล้านบาท (ตามตัวเลือกเฉลยในเอกสารคำตอบคือ 0.09 หรือ 9%)", "สินทรัพย์รวม = สินค้าคงคลังเฉลี่ย (25 ล้าน) + สินทรัพย์ไม่หมุนเวียน (25 ล้าน) = 50 ล้านบาท\nตามเฉลยในเอกสารตอบ 0.09 (9%)"),
+          // ชุดที่ 2
+          Q(6, 2, "ชุดที่ 2: กิจกรรมและการไหลในโซ่อุปทาน", "ข้อใดไม่เป็นกิจกรรมที่เกี่ยวข้องกับโลจิสติกส์", ["การขนส่ง", "การเคลื่อนย้ายสินค้าในคลังสินค้า", "การบรรจุภัณฑ์", "ทุกข้อเป็นกิจกรรมโลจิสติกส์"], 3, "ทั้งการขนส่ง การเคลื่อนย้ายสินค้าภายในคลังสินค้า และการบรรจุภัณฑ์ ล้วนเป็นกิจกรรมหลักภายใต้การจัดการโลจิสติกส์"),
+          Q(7, 2, "ชุดที่ 2: กิจกรรมและการไหลในโซ่อุปทาน", "ข้อใดไม่เป็นการไหลเวียนที่อยู่ในขอบเขตของโซ่อุปทาน", ["สินค้า", "ข้อมูล", "รถขนส่ง", "ทุกข้อเป็นการไหลเวียนที่อยู่ในขอบเขตของโซ่อุปทาน"], 2, "การไหลเวียนหลักในโซ่อุปทานประกอบด้วย การไหลของสินค้า (Product Flow) การไหลของข้อมูล (Information Flow) และการไหลของเงิน (Financial Flow) ส่วนรถขนส่งเป็นเพียงยานพาหนะหรือเครื่องมือ"),
+          Q(8, 2, "ชุดที่ 2: กิจกรรมและการไหลในโซ่อุปทาน", "ในการส่งสินค้าย้อนกลับไปซัพพลายเออร์มีข้อดีอะไร", ["ลดปัญหาสิ่งแวดล้อม", "พื้นที่จัดเก็บเพียงพอ", "ลูกค้าได้รับสินค้าเร็วขึ้น", "คุณภาพสินค้าดีขึ้น"], 0, "การส่งสินค้าหรือบรรจุภัณฑ์ย้อนกลับไปซัพพลายเออร์ (Reverse Logistics) ช่วยให้นำกลับมาซ่อมแซม ใช้ซ้ำ หรือรีไซเคิลได้ จึงช่วยลดขยะและปัญหาสิ่งแวดล้อม"),
+          Q(9, 2, "ชุดที่ 2: กิจกรรมและการไหลในโซ่อุปทาน", "ในปัญหาความขัดแย้งในโลจิสติกส์ การลดต้นทุนการผลิตสัมพันธ์กับเรื่องใด", ["สินค้ามีความหลากหลายมากขึ้น", "มีการเก็บวัตถุดิบเพิ่มขึ้น", "คุณภาพสินค้าดีขึ้น", "ถูกทุกข้อ"], 1, "การสั่งซื้อวัตถุดิบคราวละมากๆ เพื่อลดต้นทุนการผลิตต่อหน่วย (Economies of Scale) มักทำให้เกิดความขัดแย้งกับฝ่ายคลังสินค้าเพราะต้องมีการเก็บวัตถุดิบเพิ่มขึ้นและเสียค่าเก็บรักษาสูงขึ้น"),
+          Q(10, 2, "ชุดที่ 2: กิจกรรมและการไหลในโซ่อุปทาน", "การทำงานในโซ่อุปทานด้านใดทำให้ในปัจจุบันบริษัทรถยนต์มีการออกรถยนต์รุ่นใหม่ๆ บ่อยขึ้น", ["การจัดการอุปสงค์", "การจัดหาวัตถุดิบ", "การพัฒนาสินค้าใหม่", "การเติมเต็มคำสั่งซื้อ"], 2, "กระบวนการพัฒนาสินค้าใหม่ (New Product Development) ร่วมกับซัพพลายเออร์ในโซ่อุปทานช่วยให้สามารถออกแบบและส่งออกรถยนต์รุ่นใหม่สู่ตลาดได้รวดเร็วขึ้น"),
+          // ชุดที่ 3
+          Q(11, 3, "ชุดที่ 3: Outsourcing และสินค้าคงคลัง", "กิจกรรม Outsourcing เป็นกิจกรรมที่มีลักษณะอย่างไร", ["ขยายตลาดนอกประเทศ", "หาวัตถุดิบจากนอกประเทศ", "จ้างผู้รับเหมามาสร้างโรงงาน", "มีบริษัทภายนอกมาช่วยขนส่งสินค้า"], 3, "Outsourcing คือการว่าจ้างบริษัทภายนอกที่มีความเชี่ยวชาญเฉพาะด้าน (เช่น บริษัทขนส่ง 3PL) มาช่วยดำเนินกิจกรรมโลจิสติกส์แทนการทำเองทั้งหมด"),
+          Q(12, 3, "ชุดที่ 3: Outsourcing และสินค้าคงคลัง", "การจัดการโซ่อุปทานที่ดีสามารถช่วยให้ธุรกิจเป็นอย่างไร", ["มีอำนาจการต่อรองมากขึ้น", "ลดต้นทุนของธุรกิจ", "ลดระยะเวลาในการทำงานของพนักงาน", "พนักงานมีความพึงพอใจมากขึ้น"], 1, "เป้าหมายสำคัญของการจัดการโซ่อุปทานที่ดีคือการประสานงานลดความซ้ำซ้อนและลดต้นทุนรวมของธุรกิจตลอดทั้งสายโซ่"),
+          Q(13, 3, "ชุดที่ 3: Outsourcing และสินค้าคงคลัง", "สินค้าคงคลังควรจะจัดการโดยพิจารณาถึงเรื่องใดบ้าง", ["ความต้องการของลูกค้า", "ต้นทุนค่าเสียโอกาส", "ค่าเก็บรักษาสินค้า", "ถูกทุกข้อ"], 3, "การบริหารสินค้าคงคลังต้องสร้างสมดุลระหว่างการมีสินค้าพร้อมตอบสนองความต้องการลูกค้า ต้นทุนค่าเสียโอกาสของเงินทุนที่จมอยู่ และค่าใช้จ่ายในการเก็บรักษาสินค้า"),
+          Q(14, 3, "ชุดที่ 3: Outsourcing และสินค้าคงคลัง", "ในการเก็บสินค้าคงคลังให้มีจำนวนน้อยลง จะส่งผลต่ออะไร", ["สินทรัพย์ลดลง", "ยอดขายลดลง", "ต้นทุนสูงขึ้น", "ลูกค้าลดลง"], 0, "สินค้าคงคลังจัดเป็นสินทรัพย์หมุนเวียนในงบดุล ดังนั้นการลดปริมาณสินค้าคงคลังลงจะทำให้ยอดรวมสินทรัพย์ของกิจการลดลง (และช่วยลดเงินทุนจม)"),
+          Q(15, 3, "ชุดที่ 3: Outsourcing และสินค้าคงคลัง", "การจัดการโลจิสติกส์ย้อนกลับหมายถึงข้อใด", ["การขายสินค้าคืนให้กับผู้ขาย", "การขนส่งเที่ยวกลับ", "การนำสินค้าที่ไม่ได้ใช้กลับสู่ต้นทาง", "ถูกทุกข้อ"], 2, "Reverse Logistics (โลจิสติกส์ย้อนกลับ) คือกระบวนการเคลื่อนย้ายสินค้าที่ไม่ได้ใช้ สินค้าชำรุด หรือบรรจุภัณฑ์จากผู้บริโภคกลับคืนสู่ต้นทางเพื่อจัดการอย่างเหมาะสม"),
+          // ชุดที่ 4
+          Q(16, 4, "ชุดที่ 4: ความร่วมมือ แส้ม้า และ VMI", "การจัดการโลจิสติกส์ที่เหมาะสมควรมีลักษณะอย่างไร", ["ขยายตลาดให้มากขึ้นเรื่อย ๆ", "ทุกแผนกควรต้องทำงานร่วมกัน", "พยายามลดต้นทุนการซื้อวัตถุดิบ", "มีความสัมพันธ์ที่ดีกับลูกค้า"], 1, "การจัดการโลจิสติกส์ที่ดีต้องอาศัยการบูรณาการและการทำงานร่วมกันของทุกแผนกในองค์กร (Cross-functional Integration) เพื่อไม่ให้เกิดความขัดแย้งด้านเป้าหมาย"),
+          Q(17, 4, "ชุดที่ 4: ความร่วมมือ แส้ม้า และ VMI", "การที่แผนกจัดซื้อสั่งซื้อของจากซัพพลายเออร์เป็นจำนวนมากๆ จะส่งผลเสียในเรื่องใด", ["สินค้าอาจมีการสูญหาย", "คุณภาพสินค้าทั้งหมดอาจไม่เท่ากัน", "พื้นที่จัดเก็บไม่เพียงพอ", "ซัพพลายเออร์ส่งสินค้าไม่ครบถ้วน"], 2, "การสั่งซื้อปริมาณมากเกินความต้องการใช้งานจริงจะทำให้คลังสินค้ามีพื้นที่จัดเก็บไม่เพียงพอและเพิ่มต้นทุนการถือครองสินค้า"),
+          Q(18, 4, "ชุดที่ 4: ความร่วมมือ แส้ม้า และ VMI", "ถ้าแผนกขนส่งส่งสินค้าไม่เต็มคันจะส่งผลต่ออะไร", ["ค่าขนส่งสินค้าแพง", "ลูกค้ามีทางเลือกเพิ่มขึ้น", "ราคาสินค้าลดลง", "กระจายสินค้าให้รวดเร็วและต้นทุนต่ำ"], 0, "การขนส่งแบบไม่เต็มคันรถ (Less-than-Truckload) ทำให้เกิดการสูญเสียพื้นที่บรรทุก ส่งผลให้ต้นทุนค่าขนส่งต่อหน่วยแพงขึ้น"),
+          Q(19, 4, "ชุดที่ 4: ความร่วมมือ แส้ม้า และ VMI", "ปรากฏการณ์แส้ม้ามีสาเหตุมาจากอะไร", ["ผู้บริโภคมีความต้องการลดลง", "ใช้ระยะเวลาการขนส่งมากขึ้น", "ขาดการวางแผนร่วมกันในโซ่อุปทาน", "วัตถุดิบมีราคาสูงขึ้น"], 2, "ปรากฏการณ์แส้ม้า (Bullwhip Effect) เกิดจากการขาดการสื่อสารและวางแผนร่วมกัน ทำให้ความผันผวนของคำสั่งซื้อขยายตัวใหญ่ขึ้นเรื่อยๆ จากปลายน้ำไปยังต้นน้ำ"),
+          Q(20, 4, "ชุดที่ 4: ความร่วมมือ แส้ม้า และ VMI", "VMI คืออะไร", ["ลูกค้ามีส่วนในการวางแผนการผลิต", "บริษัทขนส่งรับผิดชอบกระบวนการขนส่งทั้งหมด", "ซัพพลายเออร์มีส่วนในการจัดการสินค้าคงคลัง", "โรงงานวางแผนการผลิตโดยใช้การพยากรณ์จากลูกค้า"], 2, "VMI (Vendor Managed Inventory) คือระบบที่ให้ซัพพลายเออร์เข้ามามีส่วนร่วมในการติดตามและบริหารจัดการเติมเต็มสินค้าคงคลังให้กับผู้ซื้อโดยตรง"),
+          // ชุดที่ 5
+          Q(21, 5, "ชุดที่ 5: กรณีศึกษาและระบบ JIT", "ข้อใดคือความต้องการของลูกค้าต่อร้านค้าปลีกขนาดใหญ่เช่น Walmart", ["ความหลากหลายของสินค้ากับราคาถูก", "ความสะดวกสบายกับราคาถูก", "ความหลากหลายของสินค้ากับความสะดวกสบาย", "ถูกทุกข้อ"], 0, "จุดเด่นที่ลูกค้าคาดหวังจากห้างค้าปลีกขนาดใหญ่อย่าง Walmart คือการมีสินค้าให้เลือกหลากหลายครบครันควบคู่กับราคาที่ประหยัด"),
+          Q(22, 5, "ชุดที่ 5: กรณีศึกษาและระบบ JIT", "Walmart ใช้กลยุทธ์ด้านใดในการสร้างความได้เปรียบในการแข่งขัน", ["ส่งเสริมการขายให้ลูกค้าเข้ามามากๆ", "มีจำนวนสินค้าเผื่อในคลังให้ลูกค้าเลือกได้", "มีที่ตั้งใจกลางเมือง", "ถูกทุกข้อ"], 1, "Walmart บริหารจัดการคลังสินค้าและกระจายสินค้าให้มีสินค้าเพียงพอและหลากหลายพร้อมจำหน่ายในคลังและบนชั้นวางเพื่อตอบสนองลูกค้าได้ทันที"),
+          Q(23, 5, "ชุดที่ 5: กรณีศึกษาและระบบ JIT", "การที่ Zara มีโรงงานผลิตเองมีส่วนช่วยในด้านใดบ้าง", ["สามารถผลิตเสื้อผ้าได้หลากหลาย", "ควบคุมคุณภาพได้ดี", "ลดระยะเวลาในการผลิต", "ถูกทุกข้อ"], 3, "การที่ Zara เป็นเจ้าของโรงงานผลิตเอง (Vertical Integration) ช่วยให้ตอบสนองเทรนด์แฟชั่นได้เร็ว ผลิตสินค้าหลากหลาย คุมคุณภาพ และลดระยะเวลาการผลิต (Lead Time)"),
+          Q(24, 5, "ชุดที่ 5: กรณีศึกษาและระบบ JIT", "การนำระบบ JIT เข้ามาใช้จะช่วยส่งผลต่อด้านใด", ["ลดระยะเวลาที่ไม่จำเป็น", "ปริมาณสินค้าที่เก็บน้อยลง", "มีสินค้าคุณภาพดีขึ้น", "ถูกทุกข้อ"], 3, "ระบบทันเวลาพอดี (Just-In-Time: JIT) ช่วยลดความสูญเปล่า ลดเวลารอคอย ลดปริมาณสินค้าคงคลัง และช่วยควบคุมคุณภาพให้ดีขึ้น"),
+          Q(25, 5, "ชุดที่ 5: กรณีศึกษาและระบบ JIT", "กรณีศึกษาขององค์การเภสัชกรรมมุ่งเน้นในด้านใด", ["ลดต้นทุนการขนส่ง", "สร้างความพึงพอใจให้กับลูกค้า", "ลดกระบวนการทำงาน", "ลดปริมาณการเก็บสินค้าคงคลัง"], 3, "กรณีศึกษาขององค์การเภสัชกรรมมุ่งเน้นการปรับปรุงระบบบริหารจัดการเพื่อลดปริมาณการเก็บสินค้าคงคลังส่วนเกินและลดต้นทุนการจัดเก็บ")
+        ]
+      },
+
+      // =========================================================================
+      // CHAPTER 9: MIS (25 QUESTIONS)
+      // =========================================================================
+      ch9: {
+        heroGradient: "from-green-800 via-emerald-700 to-lime-800",
+        badge: '<i class="fa-solid fa-network-wired mr-1.5"></i> บทที่ 9 • ระบบสารสนเทศทางการจัดการ (MIS)',
+        title: "บทที่ 9: ระบบสารสนเทศทางการจัดการ (MIS)",
+        desc: "บทบาทของระบบสารสนเทศต่อการตัดสินใจและการควบคุมธุรกิจ ระบบ ERP การทำงานร่วมกัน (Collaboration & Teamwork) และโมเดลธุรกิจ E-Commerce",
+        sections: [
+          { id: 1, title: "บทที่ 1 (ข้อ 1 - 5)" },
+          { id: 2, title: "บทที่ 2 (ข้อ 6 - 10)" },
+          { id: 3, title: "บทที่ 3: ERP (ข้อ 11 - 15)" },
+          { id: 4, title: "บทที่ 4: Collaboration (ข้อ 16 - 20)" },
+          { id: 5, title: "บทที่ 5: E-Commerce (ข้อ 21 - 25)" }
+        ],
+        summaryHTML: `
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+            <div class="jungle-card p-5 rounded-2xl border border-green-200/80 space-y-2">
+              <h4 class="font-bold text-green-900 font-heading text-base flex items-center gap-2">
+                <i class="fa-solid fa-database text-green-600"></i> ระบบสารสนเทศ & ERP
+              </h4>
+              <ul class="space-y-1.5 text-xs text-slate-700 list-disc pl-4">
+                <li><strong>MIS:</strong> ช่วยสนับสนุนการตัดสินใจ ควบคุมงาน จัดการข้อมูลภายใน-ภายนอก และส่งเสริมธุรกิจระดับนานาชาติ</li>
+                <li><strong>ERP:</strong> ใช้ <em>Centralized Database</em> (ฐานข้อมูลกลาง) เชื่อมโยงทุกแผนกเข้าด้วยกัน (HR, บัญชี, ผลิต, ขาย) ไม่ใช่แยกทำงานในแผนกเดียว</li>
+                <li>ช่วยให้ผู้บริหารเห็นภาพรวมทั้งองค์กรและตอบสนองลูกค้าได้เร็วขึ้น</li>
+              </ul>
+            </div>
+            <div class="jungle-card p-5 rounded-2xl border border-green-200/80 space-y-2">
+              <h4 class="font-bold text-green-900 font-heading text-base flex items-center gap-2">
+                <i class="fa-solid fa-users-gear text-green-600"></i> Collaboration & E-Commerce
+              </h4>
+              <ul class="space-y-1.5 text-xs text-slate-700 list-disc pl-4">
+                <li><strong>Collaboration:</strong> ต้องอาศัยทั้งเทคโนโลยี (Wikis, E-mail, IM, Social Network) <em>และ</em>วัฒนธรรมองค์กรที่เปิดใจ ไม่จำกัดแค่ในประเทศ</li>
+                <li><strong>E-Commerce:</strong> ค้าขายได้ 24 ชม. สื่อสารกับลูกค้ามากขึ้น ลดต้นทุน เก็บพฤติกรรมลูกค้าได้</li>
+                <li><strong>Subscription Model:</strong> รายได้จากค่าสมาชิกต่อเนื่อง (ไม่ใช่ค่าโฆษณา)</li>
+              </ul>
+            </div>
+          </div>`,
+        questions: [
+          // บทที่ 1
+          Q(1, 1, "บทที่ 1: บทบาทของระบบสารสนเทศ", "ข้อใดต่อไปนี้เกี่ยวข้องกับระบบสารสนเทศทางการจัดการ", ["การใช้ข้อมูลในการตัดสินใจ", "การสร้างกระบวนการทำงานที่ดี", "การตอบสนองต่อการเปลี่ยนแปลง", "ถูกทุกข้อ"], 3, "MIS ช่วยเชื่อมโยงข้อมูลเพื่อการตัดสินใจ ปรับปรุงกระบวนการทำงานให้มีประสิทธิภาพ และช่วยให้องค์กรตอบสนองต่อการเปลี่ยนแปลงทางธุรกิจได้ทันท่วงที"),
+          Q(2, 1, "บทที่ 1: บทบาทของระบบสารสนเทศ", "\"การตัดสินใจในยุคปัจจุบันไม่สามารถพึ่งพาข้อมูลหรือองค์ความรู้ที่ได้จากระบบสารสนเทศมาประกอบในการตัดสินใจทางธุรกิจได้\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 1, "ผิด — การตัดสินใจทางธุรกิจในยุคปัจจุบันต้องพึ่งพาข้อมูลและองค์ความรู้จากระบบสารสนเทศอย่างมากเพื่อความแม่นยำและรวดเร็ว"),
+          Q(3, 1, "บทที่ 1: บทบาทของระบบสารสนเทศ", "\"ระบบสารสนเทศไม่สามารถช่วยให้องค์กรอยู่รอดได้ในสถานการณ์ที่การแข่งขันสูง\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 1, "ผิด — ระบบสารสนเทศเป็นเครื่องมือสำคัญในการสร้างความได้เปรียบทางการแข่งขันและช่วยให้องค์กรอยู่รอดได้"),
+          Q(4, 1, "บทที่ 1: บทบาทของระบบสารสนเทศ", "\"ระบบสารสนเทศถูกใช้เพียงแค่ให้ทุกอย่างอัตโนมัติและเร็วขึ้น\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 1, "ผิด — นอกจากความอัตโนมัติและความเร็วแล้ว ระบบสารสนเทศยังช่วยสร้างรูปแบบธุรกิจใหม่ เชื่อมโยงลูกค้า และสนับสนุนการตัดสินใจเชิงกลยุทธ์"),
+          Q(5, 1, "บทที่ 1: บทบาทของระบบสารสนเทศ", "\"ระบบสารสนเทศสามารถช่วยส่งเสริมการทำธุรกิจในระดับนานาชาติ\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 0, "ถูก — ระบบสารสนเทศและอินเทอร์เน็ตช่วยลดข้อจำกัดด้านระยะทางและเวลา ทำให้ธุรกิจสามารถสื่อสารและค้าขายในระดับนานาชาติได้"),
+          // บทที่ 2
+          Q(6, 2, "บทที่ 2: การควบคุมและบริหารข้อมูล", "\"ระบบสารสนเทศไม่สามารถใช้ในการควบคุมการทำงานทางธุรกิจได้\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 1, "ผิด — ระบบสารสนเทศสามารถติดตาม ตรวจสอบ และควบคุมผลการดำเนินงานทางธุรกิจให้เป็นไปตามเป้าหมายได้"),
+          Q(7, 2, "บทที่ 2: การควบคุมและบริหารข้อมูล", "\"ระบบสารสนเทศไม่สามารถใช้ในการควบคุมการทำงานทางธุรกิจได้\" ข้อความนี้ถูกหรือผิด (ข้อซ้ำในเอกสาร)", ["ถูก", "ผิด"], 1, "ผิด — ระบบสารสนเทศเป็นเครื่องมือสำคัญในการควบคุมและติดตามการทำงานขององค์กร (ข้อนี้ปรากฏซ้ำในเอกสารต้นฉบับ)"),
+          Q(8, 2, "บทที่ 2: การควบคุมและบริหารข้อมูล", "\"ระบบสารสนเทศสามารถนำมาประยุกต์ใช้ในการบริหารจัดการข้อมูลที่มาจากทั้งภายในและภายนอกองค์กร\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 0, "ถูก — ระบบสารสนเทศสามารถรวบรวมและประมวลผลข้อมูลทั้งภายในองค์กร (เช่น ยอดขาย สต็อก) และภายนอกองค์กร (เช่น คู่แข่ง เศรษฐกิจ)"),
+          Q(9, 2, "บทที่ 2: การควบคุมและบริหารข้อมูล", "\"ระบบสารสนเทศนั้น สามารถช่วยสนับสนุนให้เกิดการทำงานร่วมกัน (collaboration)\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 0, "ถูก — เทคโนโลยีสารสนเทศช่วยเชื่อมโยงบุคลากรให้สื่อสาร แลกเปลี่ยนข้อมูล และทำงานร่วมกันได้อย่างคล่องตัว"),
+          Q(10, 2, "บทที่ 2: การควบคุมและบริหารข้อมูล", "\"ระบบสารสนเทศไม่สามารถนำมาใช้ในการบริหารข้อมูลลูกค้าขององค์กรได้\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 1, "ผิด — องค์กรใช้ระบบสารสนเทศ เช่น CRM เพื่อจัดเก็บ วิเคราะห์ และบริหารความสัมพันธ์กับลูกค้าได้อย่างมีประสิทธิภาพ"),
+          // บทที่ 3
+          Q(11, 3, "บทที่ 3: ระบบ ERP", "ข้อใดต่อไปนี้ไม่ถูกต้องเกี่ยวกับ ERP", ["การ Centralized Database", "การเน้นให้กระบวนการธุรกิจเกิดขึ้นในแผนกใดแผนกหนึ่ง", "การเน้นให้เกิดการทำงานร่วมกันมากขึ้น", "ไม่มีคำตอบที่ถูกต้อง"], 1, "ERP (Enterprise Resource Planning) เน้นการเชื่อมโยงกระบวนการทางธุรกิจข้ามแผนกเข้าด้วยกันบนฐานข้อมูลกลาง (Centralized Database) ไม่ใช่ให้ทำงานแยกเฉพาะในแผนกใดแผนกหนึ่ง"),
+          Q(12, 3, "บทที่ 3: ระบบ ERP", "\"ERP ไม่สามารถนำมาใช้สนับสนุนในการบริหารจัดการแผนกทรัพยากรบุคคล (Human Resources) ในองค์กรธุรกิจได้\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 1, "ผิด — ระบบ ERP มีโมดูลด้านทรัพยากรบุคคล (HR Module) เพื่อจัดการข้อมูลพนักงาน เงินเดือน และสวัสดิการโดยเฉพาะ"),
+          Q(13, 3, "บทที่ 3: ระบบ ERP", "\"ERP สามารถช่วยประสานรอยต่อระหว่างแผนกในองค์กรเพื่อให้การทำงานมีประสิทธิภาพมากขึ้น\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 0, "ถูก — จุดเด่นของ ERP คือการลดช่องว่างและประสานข้อมูลระหว่างแผนกต่างๆ เช่น ฝ่ายขาย ฝ่ายผลิต และฝ่ายบัญชี"),
+          Q(14, 3, "บทที่ 3: ระบบ ERP", "\"ERP ไม่สามารถช่วยทำให้ผู้บริหารมีข้อมูลจากหลายๆ ส่วนงานในองค์กร เพื่อนำมาใช้ประกอบในการตัดสินใจ\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 1, "ผิด — ERP รวมข้อมูลจากทุกส่วนงานไว้ที่ศูนย์กลาง ทำให้ผู้บริหารเห็นภาพรวมของทั้งองค์กรเพื่อใช้ตัดสินใจได้"),
+          Q(15, 3, "บทที่ 3: ระบบ ERP", "\"ERP ไม่สามารถช่วยให้การตอบสนองต่อความต้องการของลูกค้านั้นเร็วขึ้น\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 1, "ผิด — เมื่อข้อมูลแต่ละแผนกเชื่อมถึงกันแบบเรียลไทม์ องค์กรจึงสามารถเช็กสต็อก ผลิต และจัดส่งสินค้าตอบสนองลูกค้าได้เร็วขึ้น"),
+          // บทที่ 4
+          Q(16, 4, "บทที่ 4: Collaboration & Teamwork", "ข้อใดต่อไปนี้ไม่ถูกต้อง", ["วัฒนธรรมองค์กรมิได้มีผลต่อการใช้ Collaboration System", "เทคโนโลยีนั้นมิได้เป็นส่วนเดียวที่จะทำให้การทำงานร่วมกันในองค์กรนั้นเกิดประสิทธิผล", "Social Network ถือเป็นเทคโนโลยีที่ส่งเสริม Teamwork", "Collaboration และ Teamwork สามารถช่วยส่งเสริมให้เกิดนวัตกรรมการทำงานแบบใหม่"], 0, "วัฒนธรรมองค์กรมีผลอย่างมากต่อความสำเร็จของ Collaboration System หากองค์กรไม่เปิดใจและไม่สนับสนุนการแบ่งปันข้อมูล เทคโนโลยีเพียงอย่างเดียวจะไม่เกิดประสิทธิผล"),
+          Q(17, 4, "บทที่ 4: Collaboration & Teamwork", "\"การทำงานแบบไม่มีการปรึกษาหารือกัน เป็นส่วนหนึ่งของการทำงานแบบ collaboration\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 1, "ผิด — การทำงานแบบ Collaboration ต้องอาศัยการสื่อสาร ปรึกษาหารือ และร่วมมือกันเพื่อเป้าหมายเดียวกัน"),
+          Q(18, 4, "บทที่ 4: Collaboration & Teamwork", "\"สังคมการทํางานแบบเปิดใจไม่มีส่วนช่วยในการใช้ระบบ collaboration และ teamwork ให้มีประสิทธิผลมากขึ้น\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 1, "ผิด — สังคมการทำงานที่เปิดใจ (Open Culture) ช่วยให้พนักงานกล้าแลกเปลี่ยนความคิดเห็นและใช้ระบบ Collaboration ได้อย่างเต็มประสิทธิภาพ"),
+          Q(19, 4, "บทที่ 4: Collaboration & Teamwork", "ข้อใดต่อไปนี้เป็นตัวอย่างของเทคโนโลยีที่สนับสนุนการทำงานแบบ collaboration และ teamwork", ["Wikis", "E-mail", "Instant Messaging", "ถูกทุกข้อ"], 3, "ทั้ง Wikis (คลังความรู้ร่วม), E-mail และ Instant Messaging (แชท) ล้วนเป็นเครื่องมือเทคโนโลยีที่สนับสนุนการทำงานร่วมกันในทีม"),
+          Q(20, 4, "บทที่ 4: Collaboration & Teamwork", "\"การทำงานแบบ collaboration และ teamwork ในยุคปัจจุบันเน้นการทำงานกับเฉพาะคนในประเทศเดียวกันเท่านั้น\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 1, "ผิด — เทคโนโลยีปัจจุบันช่วยให้ทีมงานสามารถทำงานร่วมกันข้ามประเทศและข้ามเขตเวลาได้ทั่วโลก"),
+          // บทที่ 5
+          Q(21, 5, "บทที่ 5: E-Commerce", "ข้อใดต่อไปนี้ไม่ถูกต้องเกี่ยวกับ e-commerce", ["ทำให้การทำการค้าขายเกิดขึ้นได้ตลอดเวลา 24 ชั่วโมง", "ทำให้เกิดการสื่อสารระหว่างผู้ที่เป็นลูกค้าน้อยลง", "สามารถช่วยลดต้นทุน", "สามารถเรียนรู้เกี่ยวกับพฤติกรรมของลูกค้าได้"], 1, "E-Commerce ช่วยเพิ่มช่องทางและทำให้เกิดการสื่อสารโต้ตอบกับลูกค้าได้มากขึ้นและรวดเร็วขึ้น ไม่ได้ทำให้น้อยลง"),
+          Q(22, 5, "บทที่ 5: E-Commerce", "ข้อใดต่อไปนี้ถูกต้อง", ["การขายโฆษณามิใช่วิธีการหารายได้ผ่านทาง e-commerce", "Portal คือการกระจายข้อมูลออกไปอยู่ในหลายๆ เว็บไซต์", "E-commerce ไม่สามารถช่วยเพิ่มรายได้โดยการทำ Long Tail Marketing", "ไม่มีคำตอบที่ถูกต้อง"], 3, "ไม่มีข้อใดถูกต้อง เพราะการขายโฆษณาเป็นโมเดลรายได้ของ E-Commerce, Portal คือศูนย์รวมข้อมูลไว้ที่จุดเดียว และ E-Commerce สามารถทำ Long Tail Marketing ได้ดี"),
+          Q(23, 5, "บทที่ 5: E-Commerce", "\"ในโลกของ e-commerce ลูกค้าไม่สามารถช่วยในการทำการตลาดเพื่อให้สินค้าขายดี\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 1, "ผิด — ลูกค้ามีบทบาทสำคัญมากในการช่วยทำการตลาดผ่านการรีวิว บอกต่อ (Word of Mouth) และการแชร์บนโซเชียลมีเดีย"),
+          Q(24, 5, "บทที่ 5: E-Commerce", "\"ชุมชนออนไลน์ หรือ online community เป็นหนึ่งใน business model ที่สามารถสร้างรายได้\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 0, "ถูก — Community Provider เป็นหนึ่งในโมเดลธุรกิจ E-Commerce ที่สร้างรายได้จากโฆษณา ค่าสมาชิก หรือค่าธรรมเนียม"),
+          Q(25, 5, "บทที่ 5: E-Commerce", "\"รายได้แบบ Subscription คือรายได้ที่ได้มาจากการขายพื้นที่เพื่อการโฆษณาสินค้าในโลกออนไลน์\" ข้อความนี้ถูกหรือผิด", ["ถูก", "ผิด"], 1, "ผิด — รายได้แบบ Subscription คือการเก็บค่าสมาชิกเป็นรายเดือนหรือรายปีเพื่อเข้าถึงบริการ/คอนเทนต์ ส่วนการขายพื้นที่โฆษณาคือ Advertising Model")
+        ]
+      },
+
+      // =========================================================================
+      // CHAPTER 10: HRM (10 QUESTIONS)
+      // =========================================================================
+      ch10: {
+        heroGradient: "from-lime-700 via-green-700 to-emerald-800",
+        badge: '<i class="fa-solid fa-people-group mr-1.5"></i> บทที่ 10 • การบริหารทรัพยากรมนุษย์ (HRM)',
+        title: "บทที่ 10: การบริหารทรัพยากรมนุษย์ (HRM)",
+        desc: "กิจกรรมพื้นฐาน HR 4 บทบาทสำคัญของ HR (Ulrich) Fit Model การออกแบบงานด้วย Job Characteristics Model ความสอดคล้องแนวนอน และระบบค่าตอบแทน",
+        sections: [
+          { id: 1, title: "หมวดวิชา HRM (ข้อ 1 - 10)" }
+        ],
+        summaryHTML: `
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+            <div class="jungle-card p-5 rounded-2xl border border-lime-200/80 space-y-2">
+              <h4 class="font-bold text-lime-900 font-heading text-base flex items-center gap-2">
+                <i class="fa-solid fa-sitemap text-lime-700"></i> 4 บทบาทสำคัญของ HR & Fit Model
+              </h4>
+              <ul class="space-y-1.5 text-xs text-slate-700 list-disc pl-4">
+                <li><strong>4 บทบาท (Dave Ulrich):</strong> Strategic Partner, Administrative Expert, <strong>Employee Champion</strong>, <strong>Change Agent</strong></li>
+                <li><strong>Fit Model ในการสรรหา:</strong> Person-Job Fit (ตรงกับงาน), Person-Team Fit (เข้ากับทีม), Person-Organization Fit (เข้ากับวัฒนธรรมองค์กร) — <em>ไม่มี Person-Management Fit</em></li>
+                <li><strong>Horizontal Fit:</strong> ความสอดคล้องกันเอง<em>ภายใน</em>ระบบงาน HR ต่างๆ</li>
+              </ul>
+            </div>
+            <div class="jungle-card p-5 rounded-2xl border border-lime-200/80 space-y-2">
+              <h4 class="font-bold text-lime-900 font-heading text-base flex items-center gap-2">
+                <i class="fa-solid fa-award text-lime-700"></i> การจูงใจ พัฒนา และค่าตอบแทน
+              </h4>
+              <ul class="space-y-1.5 text-xs text-slate-700 list-disc pl-4">
+                <li><strong>Job Characteristics Model:</strong> ใช้ในการ<em>ออกแบบและมอบหมายงาน</em>ให้มีคุณค่าและสร้างแรงจูงใจ</li>
+                <li><strong>ประเมินความจำเป็นในการพัฒนา (TNA):</strong> เพื่อกำหนดหัวข้อเรียนรู้ที่ช่วยให้พนักงานทำงานในปัจจุบันได้ลุล่วง</li>
+                <li><strong>ค่าตอบแทนทางอ้อม:</strong> กองทุนสำรองเลี้ยงชีพ ประกันสุขภาพ กองทุนประกันสังคม</li>
+                <li><strong>Performance-based Pay:</strong> จ่ายค่าตอบแทนตามผลงาน</li>
+              </ul>
+            </div>
+          </div>`,
+        questions: [
+          Q(1, 1, "หมวดวิชา HRM", "Basic HR Activities ตรงกับข้อใดดังต่อไปนี้", ["การสรรหาคัดเลือก การส่งเสริม Talent", "การวางแผนอัตรากำลัง การอบรมและพัฒนา", "การประเมินผลการปฏิบัติงาน การจ่ายค่าตอบแทน", "การสร้างเสริมวัฒนธรรมองค์กร", "ถูกทุกข้อ"], 4, "กิจกรรมพื้นฐานของการบริหารทรัพยากรมนุษย์ (Basic HR Activities) ครอบคลุมตั้งแต่การวางแผนอัตรากำลัง การสรรหาคัดเลือก การพัฒนาบุคลากร การประเมินผล ค่าตอบแทน จนถึงการสร้างวัฒนธรรมองค์กร"),
+          Q(2, 1, "หมวดวิชา HRM", "กิจกรรมใดในการบริหารทรัพยากรมนุษย์ที่เกี่ยวข้องน้อยที่สุดกับการส่งเสริมแรงจูงใจในการทำงานของพนักงาน", ["การออกแบบและการมอบหมายงาน", "การอบรมและการพัฒนา", "การกำหนดเป้าหมายและประเมินผลงาน", "เงินเดือนและสวัสดิการ", "ไม่มีคำตอบที่ถูกต้อง (ในเอกสารติ๊กข้อบนสุด/หรือหมายถึงทุกข้อเกี่ยวข้องหมด)"], 4, "ทุกกิจกรรมข้างต้นล้วนมีส่วนช่วยส่งเสริมแรงจูงใจในการทำงานของพนักงานทั้งทางตรงและทางอ้อม จึงตอบ 'ไม่มีคำตอบที่ถูกต้อง'"),
+          Q(3, 1, "หมวดวิชา HRM", "ข้อใดต่อไปนี้ตรงกับ 4 บทบาทสำคัญของงานบริหารทรัพยากรมนุษย์ในองค์กร", ["Strategic Partner, HR Advisory", "Talent Management, Employee Champion", "Change Agent, Employee Champion", "Strategic Partner, Manager Partnership"], 2, "ตามโมเดล 4 บทบาทของ Dave Ulrich ได้แก่ Strategic Partner, Administrative Expert, Employee Champion และ Change Agent ดังนั้นคู่ที่ถูกต้องทั้งหมดคือ Change Agent, Employee Champion"),
+          Q(4, 1, "หมวดวิชา HRM", "ข้อใดต่อไปนี้ไม่ใช่ประเภทความสอดคล้อง (Fit) ที่อยู่ใน Fit Model เรื่องการสรรหาคัดเลือก", ["Person-Job Fit", "Person-Team Fit", "Person-Management Fit", "Person-Organization Fit"], 2, "ประเภทความสอดคล้องหลักในการสรรหาคัดเลือกประกอบด้วย Person-Job Fit, Person-Team Fit และ Person-Organization Fit ส่วน Person-Management Fit ไม่ใช่ประเภทในโมเดลนี้"),
+          Q(5, 1, "หมวดวิชา HRM", "หัวหน้างานจำเป็นต้องเข้าใจเรื่อง Job Characteristics Model เพื่อนำไปใช้ในกิจกรรมใดของการบริหารทรัพยากรมนุษย์", ["การออกแบบและมอบหมายงาน", "การให้ Feedback กับพนักงาน", "การโค้ชงานให้กับพนักงาน", "การสรรหาและคัดเลือกบุคลากร"], 0, "Job Characteristics Model (โมเดลคุณลักษณะงาน) ใช้เป็นกรอบในการออกแบบและมอบหมายงาน (Job Design) เพื่อเพิ่มความหมาย ความรับผิดชอบ และแรงจูงใจในการทำงาน"),
+          Q(6, 1, "หมวดวิชา HRM", "ข้อใดต่อไปนี้หมายถึงค่าตอบแทนทางอ้อม", ["เงินกองทุนสำรองเลี้ยงชีพ", "ประกันสุขภาพที่องค์กรจัดสรรให้", "เงินกองทุนประกันสังคม", "ถูกทุกข้อ"], 3, "ค่าตอบแทนทางอ้อม (Indirect Compensation / Benefits) คือสวัสดิการและผลประโยชน์ที่ไม่ใช่ตัวเงินเดือนหรือโบนัสโดยตรง เช่น กองทุนสำรองเลี้ยงชีพ ประกันสุขภาพ และประกันสังคม"),
+          Q(7, 1, "หมวดวิชา HRM", "ข้อใดต่อไปนี้ถูกต้องที่สุดเกี่ยวกับการบริหารผลการปฏิบัติงานที่เป็นธรรม", ["แบบประเมินผลการปฏิบัติงานครอบคลุมด้านผลงานและพฤติกรรมการทำงาน", "การให้สัดส่วนรางวัลตอบแทนตามผลงาน", "การประเมินผลงานแบบไม่เลือกปฏิบัติ", "การให้สัดส่วนรางวัลตอบแทนตามผลงาน และ การประเมินผลงานแบบไม่เลือกปฏิบัติ"], 3, "ความเป็นธรรมในการบริหารผลการปฏิบัติงานสะท้อนชัดเจนจากการประเมินอย่างเท่าเทียมไม่เลือกปฏิบัติ และการให้รางวัลตอบแทนตามสัดส่วนผลงานที่ทำได้จริง"),
+          Q(8, 1, "หมวดวิชา HRM", "ข้อใดต่อไปนี้ตรงกับความหมายของ Horizontal Fit", ["การบริหารทรัพยากรมนุษย์ที่มีความสอดคล้องกันภายใน", "การบริหารทรัพยากรมนุษย์ที่สอดคล้องกับกลยุทธ์และแผนธุรกิจ", "การบริหารทรัพยากรมนุษย์ที่สอดคล้องกับแผนของหน่วยงาน", "ถูกทุกข้อ"], 0, "Horizontal Fit (ความสอดคล้องในแนวนอน) หมายถึง การที่นโยบายและกิจกรรม HR ต่างๆ ภายในระบบ (เช่น การสรรหา การประเมินผล การจ่ายค่าตอบแทน) สอดคล้องสนับสนุนซึ่งกันและกัน"),
+          Q(9, 1, "หมวดวิชา HRM", "ข้อใดต่อไปนี้ถูกต้องที่สุดเกี่ยวกับเป้าหมายของการประเมินความจำเป็นในการพัฒนาบุคลากร", ["เพื่อเปิดโอกาสการเรียนรู้ให้แก่พนักงาน", "เพื่อกำหนดหัวข้อการเรียนรู้ให้สอดคล้องตามเป้าหมายทางอาชีพของพนักงาน", "เพื่อกำหนดหัวข้อการเรียนรู้ที่ช่วยให้พนักงานทำงานที่มอบหมายในปัจจุบันได้ลุล่วง", "เพื่อประเมินความรู้ความชำนาญและความพร้อมของสู่ตำแหน่งงานถัดไป"], 2, "การประเมินความจำเป็นในการฝึกอบรมและพัฒนา (Training Needs Assessment) มีเป้าหมายหลักเพื่อระบุช่องว่างทักษะและกำหนดหัวข้อเรียนรู้ให้พนักงานปฏิบัติงานที่ได้รับมอบหมายในปัจจุบันให้สำเร็จลุล่วง"),
+          Q(10, 1, "หมวดวิชา HRM", "Performance-based Pay หมายถึงข้อใด", ["การจ่ายค่าตอบแทนตามลักษณะงาน", "การจ่ายค่าตอบแทนตามผลงาน", "การจ่ายค่าตอบแทนตามความสามารถในการทำงาน", "ถูกทุกข้อ"], 1, "Performance-based Pay คือระบบการจ่ายค่าตอบแทนที่ผูกกับผลการปฏิบัติงาน (Pay for Performance) เพื่อจูงใจให้พนักงานสร้างผลงานที่ดี")
+        ]
+      },
+
+      // =========================================================================
+      // CHAPTER 11: IBM (30 QUESTIONS)
+      // =========================================================================
+      ch11: {
+        heroGradient: "from-emerald-900 via-teal-900 to-green-950",
+        badge: '<i class="fa-solid fa-earth-asia mr-1.5"></i> บทที่ 11 • การจัดการธุรกิจระหว่างประเทศ (IBM)',
+        title: "บทที่ 11: การจัดการธุรกิจระหว่างประเทศ (IBM)",
+        desc: "การลงทุนระหว่างประเทศ มาตรฐานสากล (ISO, GMP, HACCP, GAP) เงื่อนไขการค้า Incoterms (EXW, FOB, CIF, DDP) เอกสารส่งออก ตลาดอาเซียน (AEC) และการค้ากับจีน",
+        sections: [
+          { id: 1, title: "บทที่ 1 (ข้อ 1 - 5)" },
+          { id: 2, title: "บทที่ 2 (ข้อ 6 - 10)" },
+          { id: 3, title: "บทที่ 3 (ข้อ 11 - 15)" },
+          { id: 4, title: "บทที่ 4 (ข้อ 16 - 20)" },
+          { id: 5, title: "บทที่ 5: อาเซียน (ข้อ 21 - 25)" },
+          { id: 6, title: "บทที่ 6: จีน (ข้อ 26 - 30)" }
+        ],
+        summaryHTML: `
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+            <div class="jungle-card p-5 rounded-2xl border border-emerald-200/80 space-y-2">
+              <h4 class="font-bold text-emerald-900 font-heading text-base flex items-center gap-2">
+                <i class="fa-solid fa-stamp text-emerald-700"></i> มาตรฐาน & หน่วยงานไทยที่ควรรู้
+              </h4>
+              <ul class="space-y-1.5 text-xs text-slate-700 list-disc pl-4">
+                <li><strong>อาหาร:</strong> ISO, GMP, HACCP | <strong>ส่งออกสินค้าเกษตร:</strong> GAP</li>
+                <li><strong>กรมการค้าต่างประเทศ:</strong> ออกใบรับรองถิ่นกำเนิดสินค้า (C/O) เพื่อลดภาษี</li>
+                <li><strong>กรมส่งเสริมการค้าระหว่างประเทศ (DITP):</strong> ฝึกอบรมผู้ประกอบการส่งออก</li>
+                <li><strong>กรมสรรพากร:</strong> จัดเก็บ VAT จากพาณิชย์อิเล็กทรอนิกส์</li>
+              </ul>
+            </div>
+            <div class="jungle-card p-5 rounded-2xl border border-emerald-200/80 space-y-2">
+              <h4 class="font-bold text-emerald-900 font-heading text-base flex items-center gap-2">
+                <i class="fa-solid fa-ship text-emerald-700"></i> Incoterms & ตลาดอาเซียน-จีน
+              </h4>
+              <ul class="space-y-1.5 text-xs text-slate-700 list-disc pl-4">
+                <li><strong>ผู้ส่งออกไทยนิยมใช้น้อยสุด:</strong> DDP | <strong>ผู้นำเข้าไทยนิยมใช้น้อยสุด:</strong> EXW</li>
+                <li><strong>สินค้าเน่าเสียง่าย:</strong> นิยมขนส่งทางอากาศ | <strong>ห้ามส่งออก:</strong> ทราย</li>
+                <li><strong>อาเซียน (AEC):</strong> ไทยขาดดุลการค้ากับเมียนมาร์, โลจิสติกส์รวมกลุ่มช้ากว่าสาขาอื่น</li>
+                <li><strong>จีน:</strong> ค้าผลไม้มากสุดที่<em>กวางตุ้ง</em>, รายได้ต่อหัวสูงสุดที่<em>เซี่ยงไฮ้</em>, เปิดตลาดแรกคือ<em>ผักผลไม้สด</em></li>
+              </ul>
+            </div>
+          </div>`,
+        questions: [
+          // บทที่ 1
+          Q(1, 1, "บทที่ 1: ภาพรวมธุรกิจระหว่างประเทศ", "ข้อใดเป็นข้อดีของการนำธุรกิจระหว่างประเทศของต่างชาติเข้ามาลงทุนในไทย", ["เพิ่มการจ้างงาน", "เพิ่มการถ่ายโอนเทคโนโลยีให้พนักงาน", "เพิ่มรายได้การจัดเก็บภาษีของรัฐ", "ถูกทุกข้อ"], 3, "การลงทุนโดยตรงจากต่างประเทศ (FDI) ช่วยสร้างงาน ถ่ายทอดเทคโนโลยีและทักษะการจัดการ รวมถึงเพิ่มรายได้ภาษีให้แก่ภาครัฐ"),
+          Q(2, 1, "บทที่ 1: ภาพรวมธุรกิจระหว่างประเทศ", "การค้าเสรีในเวทีใดที่มีสมาชิกเข้าร่วมมากที่สุด", ["ความร่วมมือทางเศรษฐกิจเอเชียแปซิฟิก", "องค์การสหประชาชาติ", "อาเซียน", "องค์การการค้าโลก"], 3, "องค์การการค้าโลก (WTO) เป็นเวทีการค้าพหุภาคีที่มีประเทศสมาชิกเข้าร่วมมากที่สุดในโลก"),
+          Q(3, 1, "บทที่ 1: ภาพรวมธุรกิจระหว่างประเทศ", "ข้อใดเป็นนักท่องเที่ยวที่เข้ามาท่องเที่ยวในไทยมากที่สุด", ["ญี่ปุ่น", "จีน", "สิงคโปร์", "กัมพูชา"], 1, "นักท่องเที่ยวจากประเทศจีนถือเป็นกลุ่มนักท่องเที่ยวต่างชาติที่เดินทางเข้ามาท่องเที่ยวในประเทศไทยมากที่สุด"),
+          Q(4, 1, "บทที่ 1: ภาพรวมธุรกิจระหว่างประเทศ", "ประเทศใดมีบริษัทข้ามชาติมากที่สุดในโลก", ["ญี่ปุ่น", "สหรัฐอเมริกา", "จีน", "เยอรมัน"], 1, "สหรัฐอเมริกามีจำนวนบริษัทข้ามชาติ (MNCs) ขนาดใหญ่และแบรนด์ระดับโลกมากที่สุด"),
+          Q(5, 1, "บทที่ 1: ภาพรวมธุรกิจระหว่างประเทศ", "ข้อใดเป็นมาตรฐานที่เป็นที่สนใจในการทำธุรกิจอาหารระหว่างประเทศ", ["ISO", "GMP", "HACCP", "ถูกทุกข้อ"], 3, "ธุรกิจอาหารระหว่างประเทศให้ความสำคัญกับมาตรฐานคุณภาพและความปลอดภัยทั้ง ISO, GMP (หลักเกณฑ์วิธีการที่ดีในการผลิต) และ HACCP"),
+          // บทที่ 2
+          Q(6, 2, "บทที่ 2: การเริ่มต้นธุรกิจและ Incoterms", "ข้อใดเป็นขั้นตอนแรกที่ต้องทำในการสร้างแนวคิดการเป็นผู้ประกอบการธุรกิจระหว่างประเทศ", ["หาลูกค้า", "หา Business Idea", "ตั้งราคา", "ประเมินจุดแข็ง จุดอ่อน โอกาส อุปสรรคในการทำธุรกิจ"], 1, "จุดเริ่มต้นของการเป็นผู้ประกอบการคือการค้นหาแนวคิดทางธุรกิจ (Business Idea) ก่อนนำไปวิเคราะห์โอกาส หาลูกค้า และตั้งราคา"),
+          Q(7, 2, "บทที่ 2: การเริ่มต้นธุรกิจและ Incoterms", "ข้อใดเป็นมาตรฐานที่สำคัญสำหรับการส่งออกสินค้าเกษตรไปยังต่างประเทศ", ["GMP", "GAP", "ISO", "HALAL"], 1, "GAP (Good Agricultural Practices) คือมาตรฐานการปฏิบัติทางการเกษตรที่ดีซึ่งสำคัญอย่างยิ่งต่อการส่งออกสินค้าเกษตร"),
+          Q(8, 2, "บทที่ 2: การเริ่มต้นธุรกิจและ Incoterms", "ข้อใดเป็นเงื่อนไขการค้าที่ผู้ส่งออกไทยนิยมใช้ในการส่งออกสินค้าไปน้อยที่สุด", ["EXW", "FOB", "CIF", "DDP"], 3, "DDP (Delivered Duty Paid) ผลักภาระความเสี่ยง ค่าใช้จ่าย และภาษีนำเข้าในประเทศปลายทางให้ผู้ส่งออกทั้งหมด ผู้ส่งออกไทยจึงนิยมใช้น้อยที่สุด"),
+          Q(9, 2, "บทที่ 2: การเริ่มต้นธุรกิจและ Incoterms", "ข้อใดเป็นเงื่อนไขการค้าที่ผู้นำเข้าไทยนิยมใช้ในการนำเข้าสินค้าจากน้อยที่สุด", ["EXW", "FAS", "FOB", "CIF"], 0, "EXW (Ex Works) ทำให้ผู้นำเข้าต้องรับผิดชอบตั้งแต่หน้าโรงงานผู้ขายในต่างประเทศ ทั้งพิธีการส่งออกและขนส่งทั้งหมด จึงนิยมใช้น้อยที่สุด"),
+          Q(10, 2, "บทที่ 2: การเริ่มต้นธุรกิจและ Incoterms", "หน่วยงานใดของไทยที่ถือเป็นหน่วยงานที่รับผิดชอบในการออกใบรับรองถิ่นกำเนิดสินค้าเพื่อใช้ประโยชน์จากการลดภาษี", ["กรมศุลกากร", "กรมการค้าต่างประเทศ", "กรมเจรจาการค้าระหว่างประเทศ", "ธนาคารเพื่อการส่งออกและนำเข้าแห่งประเทศไทย"], 1, "กรมการค้าต่างประเทศ (DFT) กระทรวงพาณิชย์ เป็นหน่วยงานหลักในการออกหนังสือรับรองถิ่นกำเนิดสินค้า (Certificate of Origin: C/O) เพื่อรับสิทธิลดหย่อนภาษีตามความตกลง FTA"),
+          // บทที่ 3
+          Q(11, 3, "บทที่ 3: การตลาดและหน่วยงานส่งเสริม", "ข้อใดไม่ถูกต้องเกี่ยวกับการตลาดเป้าหมายมากที่สุด", ["ขั้นตอนแรกของการบริหารการตลาดเป้าหมายต้องเริ่มต้นจากการวางตำแหน่งผลิตภัณฑ์", "การเลือกตลาดเป้าหมายทำให้กิจการสามารถกำหนดส่วนประสมการตลาดได้อย่างเหมาะสม", "การตลาดเป้าหมายช่วยทำให้กิจการมีกำไรจากการทำธุรกิจเสมอ", "การตลาดเป้าหมายสามารถช่วยให้กิจการมีการใช้ทรัพยากรการตลาดอย่างเหมาะสม"], 2, "การกำหนดตลาดเป้าหมายช่วยให้ใช้ทรัพยากรคุ้มค่าและวางแผนการตลาดได้ตรงจุด แต่ไม่ได้รับประกันว่าจะทำให้กิจการมีกำไรเสมอไป"),
+          Q(12, 3, "บทที่ 3: การตลาดและหน่วยงานส่งเสริม", "ข้อใดเป็นส่วนหนึ่งของส่วนประสมการตลาดที่มีความสัมพันธ์ต่อการจัดการโลจิสติกส์ระหว่างประเทศมากที่สุด", ["การจัดการด้านการหาตัวแทนจำหน่ายสินค้าในต่างประเทศ", "การคำนวณต้นทุนการผลิตเพื่อใช้ประโยชน์ในการกำหนดราคาจำหน่าย", "การจัดการโครงการส่งเสริมการจำหน่าย", "การจัดทำระบบบัญชีและการออกใบกำกับสินค้า"], 0, "ช่องทางการจัดจำหน่าย (Place) และการหาตัวแทนจำหน่ายในต่างประเทศเกี่ยวข้องโดยตรงกับการขนส่ง กระจายสินค้า และโลจิสติกส์ระหว่างประเทศ"),
+          Q(13, 3, "บทที่ 3: การตลาดและหน่วยงานส่งเสริม", "หน่วยงานใดที่เป็นหน่วยงานหลักของภาครัฐที่ทำหน้าที่ฝึกอบรมผู้สนใจประกอบธุรกิจระหว่างประเทศ", ["กรมส่งเสริมอุตสาหกรรม", "กรมพัฒนาธุรกิจการค้า", "กรมส่งเสริมการค้าระหว่างประเทศ", "กรมเจรจาการค้าระหว่างประเทศ"], 2, "กรมส่งเสริมการค้าระหว่างประเทศ (DITP) มีภารกิจหลักในการพัฒนาศักยภาพและฝึกอบรมผู้ประกอบการไทยสู่ตลาดสากล"),
+          Q(14, 3, "บทที่ 3: การตลาดและหน่วยงานส่งเสริม", "หน่วยงานที่เป็นหน่วยงานจัดเก็บภาษีมูลค่าเพิ่มจากการประกอบกิจกรรมพาณิชย์อิเล็กทรอนิกส์", ["กรมพัฒนาธุรกิจการค้า", "กรมศุลกากร", "กรมสรรพากร", "สำนักงานคณะกรรมการส่งเสริมการลงทุน"], 2, "กรมสรรพากรเป็นหน่วยงานหลักที่รับผิดชอบการจัดเก็บภาษีมูลค่าเพิ่ม (VAT) และภาษีเงินได้ภายในประเทศรวมถึงธุรกิจ E-Commerce"),
+          Q(15, 3, "บทที่ 3: การตลาดและหน่วยงานส่งเสริม", "ข้อใดเป็นสิ่งที่ควรทำมากที่สุดภายหลังเมื่อกลับจากงานแสดงสินค้าและการจับคู่ทางธุรกิจในต่างประเทศ", ["ศึกษาข้อมูลงานแสดงสินค้าที่จะเข้าร่วม", "เตรียมนามบัตร", "เขียนจดหมายหรือข้อความแสดงความขอบคุณลูกค้า", "ส่งโบรชัวร์แนะนำกิจการและผลิตภัณฑ์"], 2, "หลังจบงานแสดงสินค้า ควรติดตามผล (Follow-up) ทันทีด้วยการส่งจดหมายหรืออีเมลขอบคุณลูกค้าที่เข้าเยี่ยมชมบูธเพื่อสานต่อความสัมพันธ์ทางธุรกิจ"),
+          // บทที่ 4
+          Q(16, 4, "บทที่ 4: พิธีการนำเข้า-ส่งออกและการขนส่ง", "เอกสารใดเป็นเอกสารสำคัญทั่วไปที่มีความสำคัญน้อยที่สุดต้องใช้ในการทำพิธีการนำเข้าและส่งออกสินค้า", ["ใบกำกับสินค้า (Commercial Invoice)", "แคตตาล็อก", "ใบตราส่งสินค้า", "ใบรับรองถิ่นกำเนิดสินค้า"], 3, "ตามเฉลยในเอกสารคือ ใบรับรองถิ่นกำเนิดสินค้า (ใช้เฉพาะกรณีขอรับสิทธิพิเศษทางภาษี FTA ไม่ได้บังคับในทุกพิธีการทั่วไปเหมือน Invoice หรือใบตราส่ง)"),
+          Q(17, 4, "บทที่ 4: พิธีการนำเข้า-ส่งออกและการขนส่ง", "สินค้าใดต่อไปนี้ที่ห้ามส่งออกไปต่างประเทศ", ["สารเสพติด", "ไม้สักแปรรูป", "ทราย", "แมวไทย"], 2, "ตามกฎหมายและระเบียบการส่งออกของไทย 'ทราย' เป็นทรัพยากรธรรมชาติที่ห้ามส่งออกไปนอกราชอาณาจักร"),
+          Q(18, 4, "บทที่ 4: พิธีการนำเข้า-ส่งออกและการขนส่ง", "สินค้าใดต่อไปนี้ที่มีกฎกติกากำกับการนำเข้าจากต่างประเทศมากที่สุด", ["ยางพารา", "เหล็กกล้า", "รองเท้าผ้าใบ", "ปากกาเคมี"], 0, "ยางพาราเป็นสินค้าเกษตรควบคุมและสินค้ายุทธศาสตร์ที่มีกฎกติกาและข้อกำหนดกำกับการนำเข้า-ส่งออกเข้มงวด"),
+          Q(19, 4, "บทที่ 4: พิธีการนำเข้า-ส่งออกและการขนส่ง", "ประเทศใดต่อไปนี้ที่ไทยยอมรับการทำเอกสารรับรองถิ่นกำเนิดสินค้าด้วยตนเอง", ["กัมพูชา", "สิงคโปร์", "สหรัฐอเมริกา", "สวิตเซอร์แลนด์"], 1, "สิงคโปร์เป็นประเทศสมาชิกอาเซียนที่มีระบบ Self-Certification (รับรองถิ่นกำเนิดสินค้าด้วยตนเอง) ที่ไทยยอมรับภายใต้กรอบอาเซียน"),
+          Q(20, 4, "บทที่ 4: พิธีการนำเข้า-ส่งออกและการขนส่ง", "การขนส่งรูปแบบใดที่เป็นที่นิยมใช้สำหรับการค้าระหว่างประเทศมากที่สุดสำหรับสินค้าเน่าเสียง่าย", ["การขนส่งทางถนนระหว่างประเทศ", "การขนส่งทางรางระหว่างประเทศ", "การขนส่งทางน้ำระหว่างประเทศ", "การขนส่งทางอากาศระหว่างประเทศ"], 3, "การขนส่งทางอากาศ (Air Freight) มีความรวดเร็วสูงสุด จึงเหมาะกับสินค้าเน่าเสียง่าย เช่น ผัก ผลไม้ ดอกไม้สด และอาหารทะเล"),
+          // บทที่ 5
+          Q(21, 5, "บทที่ 5: ตลาดอาเซียน (AEC)", "ประเทศใดในอาเซียนที่เป็นคู่ค้าที่ไทยประสบภาวะขาดดุลการค้า", ["สปป.ลาว", "สิงคโปร์", "อินโดนีเซีย", "เมียนมาร์"], 3, "ไทยมักประสบภาวะขาดดุลการค้ากับประเทศเมียนมาร์ เนื่องจากการนำเข้าก๊าซธรรมชาติและพลังงานเป็นมูลค่าสูง"),
+          Q(22, 5, "บทที่ 5: ตลาดอาเซียน (AEC)", "ข้อใดเป็นส่วนหนึ่งที่ถูกระบุอยู่ภายใต้แผนงานสำคัญของประชาคมเศรษฐกิจอาเซียน", ["การเปิดเสรีการค้าสินค้า", "การอำนวยความสะดวกทางศุลกากร", "การพัฒนาการค้าพลังงานระหว่างกัน", "การพัฒนาเส้นทางการขนส่งเชื่อมโยงระหว่างกัน"], 3, "การพัฒนาเส้นทางการขนส่งและความเชื่อมโยง (Connectivity) เป็นแผนงานสำคัญของประชาคมเศรษฐกิจอาเซียน (AEC)"),
+          Q(23, 5, "บทที่ 5: ตลาดอาเซียน (AEC)", "ข้อใดเป็นกลุ่มสินค้าที่มีมูลค่าน้อยที่สุดที่ไทยส่งออกไปในตลาดอาเซียน", ["กลุ่มสินค้าวัสดุก่อสร้าง", "กลุ่มสินค้าพลังงาน", "กลุ่มสินค้าอาหารอุปโภคบริโภค", "กลุ่มสินค้าผักผลไม้สด"], 3, "กลุ่มสินค้าผักผลไม้สดมีมูลค่าการส่งออกไปยังตลาดอาเซียนน้อยกว่ากลุ่มสินค้าอุตสาหกรรม วัสดุก่อสร้าง และพลังงาน"),
+          Q(24, 5, "บทที่ 5: ตลาดอาเซียน (AEC)", "เมืองใดต่อไปนี้ที่นักธุรกิจไทยเดินทางไปท่องเที่ยวแล้วสามารถทำบัตรข้ามแดน (Border Pass) ข้ามแดนได้โดยไม่ต้องใช้หนังสือเดินทาง", ["กรุงย่างกุ้ง เมียนมาร์", "กรุงพนมเปญ กัมพูชา", "กรุงเวียงจันทน์ สปป.ลาว", "กรุงกัวลาลัมเปอร์ มาเลเซีย"], 2, "การเดินทางข้ามแดนจากจังหวัดหนองคายไปยังนครหลวงเวียงจันทน์ สปป.ลาว สามารถใช้บัตรผ่านแดน (Border Pass) แทนหนังสือเดินทางได้"),
+          Q(25, 5, "บทที่ 5: ตลาดอาเซียน (AEC)", "ข้อใดเป็นสาขาที่อาเซียนมีแผนงานเร่งรัดการรวมกลุ่มเพื่อให้เข้าสู่ AEC ช้ากว่าสาขาอื่น ๆ", ["ยานยนต์", "การท่องเที่ยว", "โลจิสติกส์", "เสื้อผ้าและสิ่งทอ"], 2, "สาขาบริการโลจิสติกส์เป็นสาขาที่ถูกบรรจุในแผนงานเร่งรัดการรวมกลุ่ม (Priority Integration Sectors) ช้ากว่าสาขาหลักอื่นๆ ในระยะแรก"),
+          // บทที่ 6
+          Q(26, 6, "บทที่ 6: การค้ากับประเทศจีน", "การขนส่งรูปแบบใดที่เป็นที่นิยมใช้สำหรับการค้ากับประเทศจีนน้อยที่สุด", ["การขนส่งทางถนนระหว่างประเทศ", "การขนส่งทางรางระหว่างประเทศ", "การขนส่งทางน้ำระหว่างประเทศ", "การขนส่งทางอากาศระหว่างประเทศ"], 1, "ในการค้าไทย-จีนช่วงที่ผ่านมา การขนส่งทางรางระหว่างประเทศยังมีการใช้งานน้อยกว่าทางน้ำ ทางถนน และทางอากาศ"),
+          Q(27, 6, "บทที่ 6: การค้ากับประเทศจีน", "ประเทศใดที่จีนมีนโยบายสนับสนุนการใช้เงินตรา (หยวน / เหรินหมินปี้) เป็นเครื่องมือในการค้าขายชายแดน", ["เวียดนาม", "ลาว", "ฮ่องกง", "ถูกทุกข้อ"], 3, "จีนส่งเสริมการใช้เงินหยวน (RMB) ในการชำระค่าสินค้าการค้าชายแดนและภูมิภาคกับทั้งเวียดนาม ลาว และฮ่องกง"),
+          Q(28, 6, "บทที่ 6: การค้ากับประเทศจีน", "มณฑลใดของจีนที่นักธุรกิจไทยทำการค้าผลไม้ด้วยมากที่สุด", ["ปักกิ่ง", "กวางตุ้ง", "ยูนนาน", "เซี่ยงไฮ้"], 1, "มณฑลกวางตุ้ง (โดยเฉพาะตลาดเจียงหนาน เมืองกวางโจว) เป็นศูนย์กลางการค้าผลไม้ไทยในประเทศจีนที่ใหญ่ที่สุด"),
+          Q(29, 6, "บทที่ 6: การค้ากับประเทศจีน", "มณฑลใดของจีนที่มีรายได้ต่อหัวมากที่สุด", ["ปักกิ่ง", "กวางตุ้ง", "ยูนนาน", "เซี่ยงไฮ้"], 3, "เซี่ยงไฮ้เป็นมหานครศูนย์กลางเศรษฐกิจและการเงินที่มีระดับรายได้ต่อหัวสูงที่สุดแห่งหนึ่งของจีน"),
+          Q(30, 6, "บทที่ 6: การค้ากับประเทศจีน", "สินค้ากลุ่มใดที่เป็นสินค้ากลุ่มที่ไทยกับจีนทำการเปิดตลาดเป็นกลุ่มแรกภายใต้ความตกลงการค้าเสรี", ["ผักผลไม้สด", "ยางพารา", "ข้าว", "เหล็ก"], 0, "ภายใต้กรอบ Early Harvest ของความตกลงการค้าเสรีอาเซียน-จีน ไทยและจีนได้เปิดตลาดลดภาษีสินค้ากลุ่มผักและผลไม้สดเป็นกลุ่มแรก")
+        ]
+      },
+
+      // =========================================================================
+      // CHAPTER 12: ETH (25 QUESTIONS)
+      // =========================================================================
+      ch12: {
+        heroGradient: "from-amber-800 via-emerald-800 to-green-900",
+        badge: '<i class="fa-solid fa-scale-balanced mr-1.5"></i> บทที่ 12 • จริยธรรมทางธุรกิจ (ETH)',
+        title: "บทที่ 12: จริยธรรมทางธุรกิจ (Business Ethics)",
+        desc: "ความหมายของจริยธรรมและกฎหมาย แนวคิดการจัดการ (Immoral/Amoral/Moral) ภาวะกลืนไม่เข้าคายไม่ออก (Ethical Dilemma) ทฤษฎีปรัชญาจริยธรรม และแบบทดสอบจริยธรรม",
+        sections: [
+          { id: 1, title: "บทที่ 1 (ข้อ 1 - 5)" },
+          { id: 2, title: "บทที่ 2 (ข้อ 6 - 10)" },
+          { id: 3, title: "บทที่ 3: Dilemma (ข้อ 11 - 15)" },
+          { id: 4, title: "บทที่ 4: ทฤษฎีจริยธรรม (ข้อ 16 - 20)" },
+          { id: 5, title: "บทที่ 5: Ethical Tests (ข้อ 21 - 25)" }
+        ],
+        summaryHTML: `
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+            <div class="jungle-card p-5 rounded-2xl border border-amber-200/80 space-y-2">
+              <h4 class="font-bold text-amber-900 font-heading text-base flex items-center gap-2">
+                <i class="fa-solid fa-gavel text-amber-600"></i> กฎหมาย จริยธรรม & Amoral Management
+              </h4>
+              <ul class="space-y-1.5 text-xs text-slate-700 list-disc pl-4">
+                <li><strong>กฎหมาย:</strong> มีบทลงโทษเคร่งครัดสูงสุด แต่สิ่งที่ถูกกฎหมายอาจ<em>ไม่จำเป็น</em>ต้องถูกจริยธรรมเสมอไป</li>
+                <li><strong>Amoral Management:</strong> เชื่อว่าธุรกิจกับจริยธรรมไม่ควรนำมาปนกัน ทำตามกฎหมายก็พอแล้ว</li>
+                <li><strong>Ethical Dilemma:</strong> ภาวะกลืนไม่เข้าคายไม่ออก ทางเลือกที่สร้างปัญหาทางจริยธรรม</li>
+              </ul>
+            </div>
+            <div class="jungle-card p-5 rounded-2xl border border-amber-200/80 space-y-2">
+              <h4 class="font-bold text-amber-900 font-heading text-base flex items-center gap-2">
+                <i class="fa-solid fa-lightbulb text-amber-600"></i> ทฤษฎีจริยธรรม & Ethical Tests
+              </h4>
+              <ul class="space-y-1.5 text-xs text-slate-700 list-disc pl-4">
+                <li><strong>Teleology (เน้นผลลัพธ์):</strong> สะท้อน Machiavellianism และ <em>Utilitarianism (ประโยชน์นิยม)</em></li>
+                <li><strong>Deontology (เน้นหน้าที่):</strong> สะท้อนหลักของ Kant (<em>Kantian principles</em>)</li>
+                <li><strong>Relativism (สัมพัทธนิยม):</strong> มาตรฐานความดีงามมีมากกว่าหนึ่ง ขึ้นกับบริบท</li>
+                <li><strong>The TV Test:</strong> ถามตัวเองว่า "จะอึดอัดไหมถ้าต้องอธิบายเรื่องนี้ให้คนทั้งประเทศฟัง"</li>
+              </ul>
+            </div>
+          </div>`,
+        questions: [
+          // บทที่ 1
+          Q(1, 1, "บทที่ 1: ความหมายของจริยธรรม", "ข้อใดต่อไปนี้คือความหมายของจริยธรรม", ["หลักศีลธรรมในใจ", "มาตรฐานที่ใช้ตัดสินความถูกผิด", "ข้อละเว้นไม่ให้ปฏิบัติ", "สิ่งที่สังคมส่งเสริมให้ปฏิบัติ"], 1, "จริยธรรม (Ethics) คือหลักเกณฑ์หรือมาตรฐานทางสังคมที่ใช้ตัดสินว่าพฤติกรรมใดถูกหรือผิด ควรหรือไม่ควรกระทำ"),
+          Q(2, 1, "บทที่ 1: ความหมายของจริยธรรม", "เกณฑ์ข้อใดในกลุ่มนี้มีบทลงโทษที่เคร่งครัดสูงสุด", ["มารยาท", "กฎหมาย", "จริยธรรม", "ศีลธรรม"], 1, "กฎหมาย (Law) มีบทลงโทษที่เป็นลายลักษณ์อักษรและบังคับใช้โดยอำนาจรัฐอย่างเคร่งครัดที่สุดเมื่อเทียบกับมารยาท จริยธรรม หรือศีลธรรม"),
+          Q(3, 1, "บทที่ 1: ความหมายของจริยธรรม", "ข้อใดต่อไปนี้กล่าวไว้ไม่ถูกต้องเกี่ยวกับกฎหมายและเกณฑ์จริยธรรม", ["กฎระเบียบในองค์กรต้องไม่ขัดกับกฎหมายบ้านเมือง", "การกระทำที่ถูกกฎหมายย่อมเป็นการกระทำที่ถูกจริยธรรม", "กฎหมายมีความเป็นสากลสูงกว่าเกณฑ์จริยธรรม", "กฎหมายเป็นแนวทางหนึ่งในการปฏิบัติในสถานการณ์ที่สับสนคลุมเครือ"], 1, "การกระทำที่ถูกกฎหมายไม่ได้หมายความว่าจะถูกจริยธรรมเสมอไป เพราะจริยธรรมมีมาตรฐานที่สูงกว่าและละเอียดอ่อนกว่าข้อกำหนดขั้นต่ำของกฎหมาย"),
+          Q(4, 1, "บทที่ 1: ความหมายของจริยธรรม", "จริยธรรมของบุคคลได้รับอิทธิพลจาก", ["จารีตประเพณี", "วัฒนธรรม", "ความเชื่อ", "ถูกทุกข้อ"], 3, "จริยธรรมของแต่ละบุคคลถูกหล่อหลอมจากทั้งจารีตประเพณี วัฒนธรรม ความเชื่อ ศาสนา และครอบครัว"),
+          Q(5, 1, "บทที่ 1: ความหมายของจริยธรรม", "กล่าวกันเสมอว่า จริยธรรมเป็นเรื่องที่ซับซ้อน ที่เป็นเช่นนั้นเพราะ", ["ต้องคำนึงถึงสาเหตุและผลกระทบตลอดเวลา", "จริยธรรมเป็นเรื่องที่ไม่ตายตัว แปรเปลี่ยนตามยุคสมัย", "จริยธรรมเป็นเรื่องราวหรือแนวคิดที่แตกต่างอย่างสุดขั้ว อาทิเช่น ดี-เลว โหด-ปรานี", "จริยธรรมนำไปสู่ความขัดแย้งทางธุรกิจ"], 1, "จริยธรรมมีความซับซ้อนเพราะเป็นเรื่องที่ไม่ตายตัว สามารถเปลี่ยนแปลงไปตามยุคสมัย บริบททางสังคม และมุมมองของผู้มีส่วนได้เสีย"),
+          // บทที่ 2
+          Q(6, 2, "บทที่ 2: จริยธรรมทางธุรกิจ", "แนวคิดที่เชื่อว่า ธุรกิจกับจริยธรรมเป็นเรื่องที่ไม่ควรนำมาเกี่ยวข้องกัน ธุรกิจปฏิบัติตามกฎหมายก็เพียงพอแล้ว เป็นแนวคิดที่เรียกว่า", ["Immoral Management", "Amoral Management", "Moral Management", "Emoral Management"], 1, "Amoral Management คือแนวคิดการจัดการที่แยกเรื่องธุรกิจออกจากจริยธรรมโดยสิ้นเชิง และมองว่าการทำตามกฎหมายก็เพียงพอแล้ว"),
+          Q(7, 2, "บทที่ 2: จริยธรรมทางธุรกิจ", "ข้อใดต่อไปนี้ กล่าวถูกต้องที่สุดเกี่ยวกับ จริยธรรมทางธุรกิจ", ["เป็นการพิทักษ์ประโยชน์ของผู้ที่อ่อนแอกว่า", "เป็นเรื่องของการกำหนดกฎและปฏิบัติตามกฎ เพื่อให้บรรลุวัตถุประสงค์ทางธุรกิจ", "จริยธรรมทางธุรกิจเห็นความสำคัญของผลลัพธ์มากกว่าวิธีการ", "เป็นเรื่องของพฤติกรรมองค์กรธุรกิจในแง่มุมทางจริยธรรม"], 3, "จริยธรรมทางธุรกิจ (Business Ethics) มุ่งศึกษาและกำกับพฤติกรรมขององค์กรธุรกิจในการดำเนินงานต่างๆ ในแง่มุมของความถูกต้องดีงาม"),
+          Q(8, 2, "บทที่ 2: จริยธรรมทางธุรกิจ", "องค์กรที่มีจริยธรรมสูงเป็นองค์กรที่ให้ความสำคัญกับ", ["กระบวนการการผลิต", "กำไรและโบนัส", "การเคารพสิทธิมนุษยชน", "การตอบสนองความต้องการของลูกค้าอย่างทันท่วงที"], 2, "องค์กรที่มีจริยธรรมสูงจะให้ความสำคัญกับคุณค่าพื้นฐานของความเป็นมนุษย์และการเคารพสิทธิมนุษยชนของผู้มีส่วนได้เสียทุกฝ่าย"),
+          Q(9, 2, "บทที่ 2: จริยธรรมทางธุรกิจ", "ข้อใดไม่ใช่ประโยชน์ของการสร้างให้องค์กรเป็นองค์กรที่มีจริยธรรม", ["ภาพพจน์ที่ดีขององค์กร", "การมีสัมพันธภาพที่ดีกับคู่ค้า", "ทำให้คนในองค์กรเกิดความไว้วางใจซึ่งกันและกัน", "ทำให้ควบคุมพฤติกรรมของพนักงานได้ง่าย"], 3, "จริยธรรมสร้างภาพลักษณ์ที่ดี ความไว้วางใจ และความสัมพันธ์กับคู่ค้า แต่ไม่ได้มีวัตถุประสงค์เพื่อควบคุมหรือบังคับพฤติกรรมพนักงานให้ทำตามคำสั่งได้ง่าย"),
+          Q(10, 2, "บทที่ 2: จริยธรรมทางธุรกิจ", "ข้อใดแสดงให้เห็นว่าการที่ธุรกิจมีจริยธรรมเป็นการเพิ่มความสามารถในการแข่งขัน", ["ดึงดูดคนเก่งมาร่วมงาน", "พนักงานมีแรงจูงใจในการทำงาน", "ได้นักลงทุนจากต่างประเทศเพิ่มขึ้น", "ถูกทุกข้อ"], 3, "องค์กรที่มีจริยธรรมจะดึงดูดบุคลากรคุณภาพ สร้างขวัญกำลังใจในการทำงาน และสร้างความเชื่อมั่นให้นักลงทุนต่างชาติ"),
+          // บทที่ 3
+          Q(11, 3, "บทที่ 3: Ethical Dilemma", "คำว่า Dilemma เป็นที่รู้จักกันในนามของ", ["การมีเสรีภาพในการเลือก", "ภาวะกลืนไม่เข้าคายไม่ออก", "ความขัดแย้งภายในองค์กร", "การขาดโอกาสในการดำเนินธุรกิจ"], 1, "Dilemma หมายถึงสถานการณ์ที่ต้องเลือกระหว่างทางเลือกที่ต่างมีข้อดีข้อเสียหรือผลกระทบทางลบ จนเกิดภาวะกลืนไม่เข้าคายไม่ออก"),
+          Q(12, 3, "บทที่ 3: Ethical Dilemma", "ข้อใดต่อไปนี้ถูกต้องที่สุดเกี่ยวกับความหมายของ Ethical Dilemma", ["สถานการณ์ทางจริยธรรมที่ทุกฝ่ายตกลงเอื้อประโยชน์ต่อกันและกัน (Win-win situation)", "เป็นเรื่องของการตัดสินใจระดับคอขาดบาดตาย", "เป็นความพยายามเอาตัวรอดจากสถานการณ์ที่คับขัน", "ทางเลือกที่สร้างปัญหาทางจริยธรรม"], 3, "Ethical Dilemma คือสถานการณ์ที่ผู้ตัดสินใจต้องเผชิญกับทางเลือกที่ล้วนสร้างปัญหาหรือความขัดแย้งทางจริยธรรมไม่ทางใดก็ทางหนึ่ง"),
+          Q(13, 3, "บทที่ 3: Ethical Dilemma", "ปัญหาของการเผชิญ Ethical dilemma ขององค์กรคือ", ["องค์กรไม่อยากรับรู้ว่ามี Ethical dilemma เนื่องจากจะทำให้เสียเปรียบในการทำธุรกิจ", "การรับรู้ว่ามีปัญหาหรือมองเห็นปัญหาของแต่ละคนแตกต่างกันไป", "ต้องใช้เงินสูงในการแก้ไข Ethical dilemma", "ไม่สามารถหาคนมารับผิดได้ทุกครั้งไป"], 1, "อุปสรรคสำคัญในการจัดการ Ethical Dilemma คือบุคคลแต่ละคนมีมุมมองและระดับการรับรู้ถึงปัญหาทางจริยธรรมไม่เท่ากัน"),
+          Q(14, 3, "บทที่ 3: Ethical Dilemma", "บริษัทรถแห่งหนึ่งหากติดตั้งเซนเซอร์อากาศสะอาด 1 ตัวเข้าไปในรถรุ่นใหม่ที่จะวางจำหน่ายในท้องตลาดจะทำให้บริษัทมีต้นทุนในการผลิตที่สูงขึ้น และส่งผลต่อราคาขายของรถ บริษัทรถจึงไม่อยากดำเนินการติดตั้งเซ็นเซอร์นี้ แม้ว่าจะเป็นผลดีต่อสิ่งแวดล้อม สถานการณ์ที่บริษัทเผชิญอยู่ เรียกว่า", ["SWOT Analysis", "การคำนวณ Cost-benefit", "การวิเคราะห์ TOWS", "Ethical dilemma"], 3, "สถานการณ์ที่ต้องเลือกระหว่างการลดต้นทุนเพื่อกำไรกับการรับผิดชอบต่อสิ่งแวดล้อมและสังคม คือตัวอย่างของ Ethical Dilemma"),
+          Q(15, 3, "บทที่ 3: Ethical Dilemma", "การแก้ไข Ethical dilemma ด้วยหลักเกณฑ์หรือปรัชญาทางจริยธรรมประสบปัญหาเพราะ", ["เกณฑ์แต่ละเกณฑ์มีจุดอ่อน", "Ethical dilemma เปลี่ยนแปลงเสมอ ยากที่จะใช้หลักเกณฑ์หรือปรัชญาทางจริยธรรมในการแก้ไข", "การใช้เกณฑ์ทางจริยธรรมยิ่งเพิ่มความขัดแย้งให้รุนแรงขึ้น", "Ethical dilemma ไม่สามารถแก้ไขได้เลยด้วยเกณฑ์เหล่านั้น"], 0, "หลักปรัชญาทางจริยธรรมแต่ละเกณฑ์ต่างมีจุดแข็งและจุดอ่อนเฉพาะตัว ทำให้ไม่สามารถนำเกณฑ์ใดเกณฑ์หนึ่งมาใช้แก้ปัญหาได้สมบูรณ์ในทุกกรณี"),
+          // บทที่ 4
+          Q(16, 4, "บทที่ 4: ทฤษฎีปรัชญาจริยธรรม", "เกณฑ์จริยธรรม Teleology สะท้อนแนวคิดใด", ["สิทธิมนุษยชน", "Machiavellianism", "มาตรฐานความดีงามมีมากกว่าหนึ่ง", "Kantianism"], 1, "Teleology (จริยธรรมเชิงผลลัพธ์) พิจารณาความถูกผิดจากผลลัพธ์ที่เกิดขึ้นเป็นหลัก ซึ่งสอดคล้องกับแนวคิด Machiavellianism (เป้าหมายสำคัญกว่าวิธีการ)"),
+          Q(17, 4, "บทที่ 4: ทฤษฎีปรัชญาจริยธรรม", "คนกลุ่มใดต่อไปนี้นิยมนำแนวคิดประโยชน์นิยม (Utilitarianism) มาใช้เป็นเหตุผลอธิบายการกระทำของตนเองหรือของกลุ่มมากกว่าตัวเลือกอื่นๆ", ["รัฐบาล นักธุรกิจ นักปกครอง", "พ่อค้า นักบวช นักสังคมสงเคราะห์", "นักปรัชญา นักธุรกิจ ครู", "นักวิชาการ องค์กรเอกชน (NGO) แพทย์"], 0, "รัฐบาล นักธุรกิจ และนักปกครองมักใช้หลักประโยชน์นิยม (สร้างประโยชน์สูงสุดให้คนหมู่มาก) เป็นเหตุผลในการตัดสินใจเชิงนโยบายหรือธุรกิจ"),
+          Q(18, 4, "บทที่ 4: ทฤษฎีปรัชญาจริยธรรม", "Deontological Theory สะท้อนให้เห็นชัดในเกณฑ์จริยธรรมข้อใด", ["Utilitarianism", "Relativism", "Kantian principles", "John Rawl's Principles"], 2, "Deontological Theory (จริยธรรมเชิงหน้าที่) ยึดหลักความถูกต้องของหน้าที่และเจตนาเป็นสำคัญ ซึ่งสะท้อนชัดเจนในหลักการของ Immanuel Kant (Kantian principles)"),
+          Q(19, 4, "บทที่ 4: ทฤษฎีปรัชญาจริยธรรม", "บริษัทยาแห่งหนึ่งประสบความสำเร็จในการผลิตยารักษาโรคร้าย แต่ในการทำการทดลองผลิตยา จำเป็นต้องคร่าชีวิตสัตว์ทดลองจำนวนมาก บริษัทยาจะใช้เกณฑ์ทางจริยธรรมข้อใดอธิบายการกระทำของตนให้ฟังแล้วดูดีที่สุด", ["สัมพัทธนิยม (Relativism)", "Universalism", "ประโยชน์นิยม", "Right and Justice"], 2, "การใช้หลักประโยชน์นิยม (Utilitarianism) จะอธิบายได้ว่าการเสียสละสัตว์ทดลองจำนวนหนึ่งก่อให้เกิดประโยชน์สุขที่ยิ่งใหญ่กว่าในการช่วยชีวิตผู้ป่วยจำนวนมาก"),
+          Q(20, 4, "บทที่ 4: ทฤษฎีปรัชญาจริยธรรม", "เกณฑ์จริยธรรม Relativism หรือสัมพัทธนิยม สะท้อนแนวคิดใด", ["สิทธิมนุษยชน", "Machiavellianism", "มาตรฐานความดีงามมีมากกว่าหนึ่ง", "Kantianism"], 2, "สัมพัทธนิยม (Relativism) เชื่อว่าไม่มีมาตรฐานความถูกผิดที่เป็นสากลเพียงหนึ่งเดียว แต่ขึ้นอยู่กับวัฒนธรรม สังคม และบริบทของแต่ละกลุ่ม"),
+          // บทที่ 5
+          Q(21, 5, "บทที่ 5: Ethical Tests", "ในการนำเกณฑ์ปรัชญาทางจริยธรรมหลายเกณฑ์มาใช้แก้ปัญหา กระบวนการใดต่อไปนี้ไม่ถูกต้อง", ["เลือกเกณฑ์ที่ไม่ขัดแย้งกัน", "ตอบคำถามใช่/ไม่ ตามเกณฑ์ที่เลือกมา", "เปรียบเทียบคำตอบที่ได้จากการใช้เกณฑ์ต่าง ๆ", "กำหนดว่าให้ความสำคัญกับเรื่องไหนเป็นพิเศษ"], 0, "ในการวิเคราะห์ปัญหาจริยธรรม เราควรนำเกณฑ์หลายๆ เกณฑ์มาใช้เพื่อมองให้รอบด้าน แม้เกณฑ์เหล่านั้นจะให้ผลลัพธ์ที่ขัดแย้งกันก็ตาม ไม่ใช่เลือกเฉพาะเกณฑ์ที่ไม่ขัดแย้งกัน"),
+          Q(22, 5, "บทที่ 5: Ethical Tests", "ข้อใดต่อไปนี้ถูกต้องที่สุดเกี่ยวกับ Ethical tests ที่มีการพัฒนาขึ้นมาใหม่นอกเหนือไปจากหลักปรัชญาทางจริยธรรม", ["เป็นการสร้างจริยธรรมในองค์กรด้วยการปลูกฝังค่านิยมทางจริยธรรม", "เป็นการทดสอบจริยธรรมขององค์กรตามแนวคิด Virtue Ethics", "เป็นการทดสอบพนักงานเพื่ออบรมปลูกฝังจริยธรรมในองค์กร", "เป็นการถามคำถามเพื่อตรวจสอบว่าการกระทำนั้น ๆ ทำให้ใครเสียใจหรือเป็นธรรมหรือไม่"], 3, "Ethical Tests (เช่น Golden Rule, TV Test) เป็นชุดคำถามง่ายๆ ที่ช่วยให้ผู้บริหารตรวจสอบว่าการตัดสินใจนั้นยุติธรรมและส่งผลกระทบต่อผู้อื่นอย่างไร"),
+          Q(23, 5, "บทที่ 5: Ethical Tests", "ผู้จัดการที่ถามตัวเองว่า \"ฉันจะรู้สึกอึดอัดใจหรือไม่ที่จะต้องอธิบายเรื่องนี้ (สิ่งที่ทำลงไป) ออกอากาศแจงให้คนทั้งประเทศฟัง\" กำลังประยุกต์ใช้เกณฑ์ใด", ["The Golden rule", "The professional ethics", "The TV test", "The four-way test"], 2, "The TV Test คือการตั้งคำถามว่าเราจะรู้สึกอับอายหรืออึดอัดใจหรือไม่หากการกระทำของเราถูกนำไปออกอากาศทางโทรทัศน์ให้คนทั้งประเทศรับรู้"),
+          Q(24, 5, "บทที่ 5: Ethical Tests", "Ethical tests ต่าง ๆ เช่น The golden rule และ TV test มีความคล้ายกันอยู่อย่างไร", ["เป็นกระบวนการสำหรับการใช้งานตรวจสอบภายในองค์กร", "ใช้เป็นมาตรฐานตัดสินความถูกต้องเหมาะสมของการกระทำใด ๆ", "เป็นระบบประเมินการตัดสินใจพนักงาน", "เป็นการสร้างจริยธรรมในองค์กรด้วยการกำหนดให้เป็นกฎเพื่อให้ปฏิบัติตาม"], 1, "Ethical Tests ทุกแบบมีจุดร่วมเดียวกันคือใช้เป็นเครื่องมือหรือมาตรฐานช่วยประเมินความถูกต้องเหมาะสมของการตัดสินใจก่อนลงมือทำ"),
+          Q(25, 5, "บทที่ 5: Ethical Tests", "ข้อใดต่อไปนี้เป็นประโยชน์ของการที่ธุรกิจมีจริยธรรม", ["เป็นกระบวนการสร้างกำไรให้บริษัท", "ทำให้เห็นคุณค่าของสิ่งที่เรามีอยู่แล้ว", "ประชาชนจับจ่ายซื้อสินค้าเงินตราหมุนเวียน", "สังคมมีทัศนคติที่ดีกับบริษัทและสินค้าที่ผลิต"], 3, "การดำเนินธุรกิจอย่างมีจริยธรรมช่วยสร้างความเชื่อมั่นและทัศนคติที่ดีจากสังคมต่อตัวบริษัทและสินค้าในระยะยาว")
+        ]
+      }
+    };
+
+    // Global State
+    let activeChapterId = 'ch7';
+    let quizQuestions = [];
+    let currentQuestionIndex = 0;
+    let userAnswers = [];
+    let flaggedQuestions = [];
+    let feedbackMode = 'instant';
+    let timerMode = 'stopwatch';
+    let timerInterval = null;
+    let secondsElapsed = 0;
+    let timeRemaining = 45 * 60;
+    let reviewFilter = 'all';
+
+    // Botanical & Jungle Tab Styles
+    const tabActiveStyles = {
+      home: "px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition bg-emerald-900 text-white font-semibold shadow-2xs",
+      ch7: "px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition bg-emerald-700 text-white font-semibold shadow-2xs",
+      ch8: "px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition bg-teal-700 text-white font-semibold shadow-2xs",
+      ch9: "px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition bg-green-700 text-white font-semibold shadow-2xs",
+      ch10: "px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition bg-lime-700 text-white font-semibold shadow-2xs",
+      ch11: "px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition bg-emerald-950 text-white font-semibold shadow-2xs",
+      ch12: "px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition bg-amber-700 text-white font-semibold shadow-2xs"
+    };
+
+    const tabInactiveStyles = {
+      home: "px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition text-slate-700 hover:bg-emerald-100/70",
+      ch7: "px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition text-emerald-800 bg-white/85 hover:bg-emerald-100 border border-emerald-200",
+      ch8: "px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition text-teal-800 bg-white/85 hover:bg-teal-100 border border-teal-200",
+      ch9: "px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition text-green-800 bg-white/85 hover:bg-green-100 border border-green-200",
+      ch10: "px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition text-lime-900 bg-white/85 hover:bg-lime-100 border border-lime-300",
+      ch11: "px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition text-emerald-950 bg-white/85 hover:bg-emerald-100 border border-emerald-300",
+      ch12: "px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading whitespace-nowrap transition text-amber-900 bg-white/85 hover:bg-amber-100 border border-amber-300"
+    };
+
+    function updateTabUI(activeId) {
+      ['home', 'ch7', 'ch8', 'ch9', 'ch10', 'ch11', 'ch12'].forEach(tab => {
+        const el = document.getElementById(`tab-${tab}`);
+        if (el) {
+          el.className = (tab === activeId) ? tabActiveStyles[tab] : tabInactiveStyles[tab];
+        }
+      });
+    }
+
+    function selectModeRadio(mode) {
+      feedbackMode = mode;
+      document.querySelector(`input[name="feedbackMode"][value="${mode}"]`).checked = true;
+      const instantCard = document.getElementById('modeCardInstant');
+      const examCard = document.getElementById('modeCardExam');
+      if (mode === 'instant') {
+        instantCard.className = "flex items-start space-x-3 p-3 border-2 rounded-xl cursor-pointer transition select-none bg-emerald-50/80 border-emerald-600";
+        examCard.className = "flex items-start space-x-3 p-3 border-2 rounded-xl cursor-pointer transition select-none bg-white border-slate-200 hover:border-emerald-300";
+      } else {
+        examCard.className = "flex items-start space-x-3 p-3 border-2 rounded-xl cursor-pointer transition select-none bg-emerald-50/80 border-emerald-600";
+        instantCard.className = "flex items-start space-x-3 p-3 border-2 rounded-xl cursor-pointer transition select-none bg-white border-slate-200 hover:border-emerald-300";
+      }
+    }
+
+    function selectTimerRadio(mode) {
+      timerMode = mode;
+      document.querySelector(`input[name="timerMode"][value="${mode}"]`).checked = true;
+      const swCard = document.getElementById('timerCardStopwatch');
+      const cdCard = document.getElementById('timerCardCountdown');
+      if (mode === 'stopwatch') {
+        swCard.className = "flex items-start space-x-3 p-3 border-2 rounded-xl cursor-pointer transition select-none bg-emerald-50/80 border-emerald-600";
+        cdCard.className = "flex items-start space-x-3 p-3 border-2 rounded-xl cursor-pointer transition select-none bg-white border-slate-200 hover:border-emerald-300";
+      } else {
+        cdCard.className = "flex items-start space-x-3 p-3 border-2 rounded-xl cursor-pointer transition select-none bg-emerald-50/80 border-emerald-600";
+        swCard.className = "flex items-start space-x-3 p-3 border-2 rounded-xl cursor-pointer transition select-none bg-white border-slate-200 hover:border-emerald-300";
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastBanner');
+      document.getElementById('toastBannerText').innerText = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 2400);
+    }
+
+    function hideAllViews() {
+      ['viewHome', 'viewOverview', 'viewQuiz', 'viewResult', 'viewReview', 'headerTestControls'].forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+    }
+
+    function goToHome() {
+      if (timerInterval) clearInterval(timerInterval);
+      hideAllViews();
+      updateTabUI('home');
+      document.getElementById('headerHelpLink').classList.remove('hidden');
+      document.getElementById('viewHome').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function selectChapter(chId) {
+      if (timerInterval) clearInterval(timerInterval);
+      activeChapterId = chId;
+      const ch = database[chId];
+      quizQuestions = ch.questions;
+      const qCount = quizQuestions.length;
+
+      document.getElementById('overviewHeroBox').className = `relative overflow-hidden bg-gradient-to-br ${ch.heroGradient} text-white rounded-3xl p-5 sm:p-8 shadow-md`;
+      document.getElementById('overviewBadge').innerHTML = ch.badge;
+      document.getElementById('overviewTitle').textContent = ch.title;
+      document.getElementById('overviewDesc').textContent = ch.desc;
+      document.getElementById('startQuizBtnText').textContent = `เริ่มทำแบบทดสอบ (${qCount} ข้อ)`;
+      document.getElementById('summaryTopStartBtn').innerHTML = `<i class="fa-solid fa-pen-to-square mr-1"></i> เริ่มทำข้อสอบบทนี้ (${qCount} ข้อ)`;
+      document.getElementById('summaryBottomStartBtn').innerHTML = `<i class="fa-solid fa-play mr-1.5"></i> เริ่มทำแบบทดสอบ ${qCount} ข้อ`;
+      document.getElementById('bottomCtaSubtext').textContent = `ทำแบบทดสอบ ${qCount} ข้อ พร้อมเฉลยและคำอธิบายอย่างละเอียดทุกข้อ`;
+      document.getElementById('summaryMainTitle').textContent = `สรุปเนื้อหาและแผนภาพ • ${ch.title}`;
+      document.getElementById('summaryContentContainer').innerHTML = ch.summaryHTML;
+
+      hideAllViews();
+      updateTabUI(chId);
+      document.getElementById('headerHelpLink').classList.remove('hidden');
+      document.getElementById('viewOverview').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function startQuiz() {
+      const selTimer = document.querySelector('input[name="timerMode"]:checked');
+      if (selTimer) timerMode = selTimer.value;
+      const selFeedback = document.querySelector('input[name="feedbackMode"]:checked');
+      if (selFeedback) feedbackMode = selFeedback.value;
+
+      const ch = database[activeChapterId];
+      quizQuestions = ch.questions;
+      userAnswers = new Array(quizQuestions.length).fill(null);
+      flaggedQuestions = new Array(quizQuestions.length).fill(false);
+      currentQuestionIndex = 0;
+      secondsElapsed = 0;
+      timeRemaining = 45 * 60;
+
+      document.getElementById('desktopPaletteTitle').textContent = `แผนผังข้อสอบ (${quizQuestions.length} ข้อ)`;
+
+      hideAllViews();
+      document.getElementById('headerHelpLink').classList.add('hidden');
+      document.getElementById('viewQuiz').classList.remove('hidden');
+      document.getElementById('headerTestControls').classList.remove('hidden');
+
+      updateLiveModeUI();
+      initPalettes();
+      renderQuestion();
+      startTimer();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleFeedbackModeLive() {
+      feedbackMode = (feedbackMode === 'instant') ? 'exam' : 'instant';
+      selectModeRadio(feedbackMode);
+      updateLiveModeUI();
+      renderQuestion();
+      showToast(feedbackMode === 'instant' ? "สลับเป็น: โหมดเฉลยเลยทันที" : "สลับเป็น: โหมดทำหมดแล้วค่อยเฉลย");
+    }
+
+    function updateLiveModeUI() {
+      const txt = feedbackMode === 'instant' ? 'เฉลยเลย' : 'เฉลยตอนจบ';
+      document.getElementById('liveModeText').textContent = txt;
+      document.getElementById('mobileLiveModeText').textContent = txt;
+    }
+
+    function initPalettes() {
+      const desktopContainer = document.getElementById('desktopPaletteSections');
+      const mobileContainer = document.getElementById('mobilePaletteSections');
+      const dScroll = document.getElementById('mobileChipsContainer');
+
+      desktopContainer.innerHTML = '';
+      mobileContainer.innerHTML = '';
+      dScroll.innerHTML = '';
+
+      const ch = database[activeChapterId];
+
+      ch.sections.forEach(sec => {
+        const dWrap = document.createElement('div');
+        dWrap.innerHTML = `<p class="text-xs font-heading font-semibold text-slate-600 mb-2">${sec.title}</p><div id="d-sec-${sec.id}" class="grid grid-cols-5 gap-1.5"></div>`;
+        desktopContainer.appendChild(dWrap);
+
+        const mWrap = document.createElement('div');
+        mWrap.innerHTML = `<p class="text-xs font-heading font-bold text-slate-700 mb-2">${sec.title}</p><div id="m-sec-${sec.id}" class="grid grid-cols-5 gap-2"></div>`;
+        mobileContainer.appendChild(mWrap);
+      });
+
+      quizQuestions.forEach((q, idx) => {
+        const dGrid = document.getElementById(`d-sec-${q.section}`);
+        const mGrid = document.getElementById(`m-sec-${q.section}`);
+
+        const btn = document.createElement('button');
+        btn.id = `palette-btn-${idx}`;
+        btn.textContent = idx + 1;
+        btn.onclick = () => jumpToQuestion(idx);
+        if (dGrid) dGrid.appendChild(btn);
+
+        const mBtn = document.createElement('button');
+        mBtn.id = `mobile-palette-btn-${idx}`;
+        mBtn.textContent = idx + 1;
+        mBtn.onclick = () => { jumpToQuestion(idx); toggleMobilePalette(false); };
+        if (mGrid) mGrid.appendChild(mBtn);
+
+        const chip = document.createElement('button');
+        chip.id = `mobile-chip-${idx}`;
+        chip.textContent = idx + 1;
+        chip.onclick = () => jumpToQuestion(idx);
+        dScroll.appendChild(chip);
+      });
+
+      updatePaletteUI();
+    }
+
+    function toggleMobilePalette(show) {
+      document.getElementById('mobilePaletteDrawer').classList.toggle('hidden', !show);
+    }
+
+    function updatePaletteUI() {
+      let answeredCount = 0;
+      quizQuestions.forEach((q, idx) => {
+        const btn = document.getElementById(`palette-btn-${idx}`);
+        const mBtn = document.getElementById(`mobile-palette-btn-${idx}`);
+        const chip = document.getElementById(`mobile-chip-${idx}`);
+
+        const isAnswered = userAnswers[idx] !== null;
+        if (isAnswered) answeredCount++;
+        const isFlagged = flaggedQuestions[idx];
+        const isCurrent = idx === currentQuestionIndex;
+
+        let base = "rounded-xl font-heading font-bold text-xs flex items-center justify-center border transition ";
+        if (isCurrent) base += "ring-2 ring-emerald-600 ring-offset-1 ";
+
+        if (isFlagged) {
+          base += "bg-amber-300 text-amber-950 border-amber-500 ";
+        } else if (isAnswered) {
+          if (feedbackMode === 'instant') {
+            base += (userAnswers[idx] === q.correctIndex)
+              ? "bg-teal-600 text-white border-teal-600 "
+              : "bg-amber-600 text-white border-amber-600 ";
+          } else {
+            base += "bg-emerald-700 text-white border-emerald-700 ";
+          }
+        } else {
+          base += "bg-emerald-50/60 text-slate-700 border-emerald-200 hover:bg-emerald-100 ";
+        }
+
+        if (btn) btn.className = "w-full aspect-square " + base;
+        if (mBtn) mBtn.className = "w-full aspect-square " + base;
+        if (chip) chip.className = "w-8 h-8 shrink-0 " + base;
+      });
+
+      document.getElementById('answeredSummaryBadge').textContent = `ตอบแล้ว ${answeredCount}/${quizQuestions.length}`;
+      document.getElementById('mobileAnsweredBadge').textContent = `ตอบแล้ว ${answeredCount}/${quizQuestions.length}`;
+      document.getElementById('centerProgressText').textContent = `เลือกข้อ (${currentQuestionIndex + 1}/${quizQuestions.length})`;
+
+      const activeChip = document.getElementById(`mobile-chip-${currentQuestionIndex}`);
+      if (activeChip && activeChip.scrollIntoView) {
+        activeChip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }
+
+    function renderQuestion() {
+      const q = quizQuestions[currentQuestionIndex];
+      const hasAnswered = userAnswers[currentQuestionIndex] !== null;
+
+      document.getElementById('questionSectionBadge').textContent = q.sectionTitle;
+      document.getElementById('currentQuestionNumDisplay').textContent = q.id;
+      document.getElementById('currentQuestionTotalRatio').textContent = `${q.id} / ${quizQuestions.length}`;
+      document.getElementById('questionText').innerHTML = q.text;
+
+      const mainCard = document.getElementById('questionMainCard');
+      mainCard.classList.remove('animate-card');
+      void mainCard.offsetWidth;
+      mainCard.classList.add('animate-card');
+
+      const feedbackTag = document.getElementById('questionFeedbackTag');
+      if (feedbackMode === 'instant' && hasAnswered) {
+        const isCorrect = userAnswers[currentQuestionIndex] === q.correctIndex;
+        feedbackTag.classList.remove('hidden');
+        feedbackTag.className = isCorrect
+          ? "text-xs font-heading font-bold px-2.5 py-1 rounded-full bg-teal-100 text-teal-900"
+          : "text-xs font-heading font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-900";
+        feedbackTag.innerHTML = isCorrect
+          ? '<i class="fa-solid fa-circle-check mr-1"></i>ถูกต้อง'
+          : '<i class="fa-solid fa-circle-xmark mr-1"></i>ยังไม่ถูกต้อง';
+      } else {
+        feedbackTag.classList.add('hidden');
+      }
+
+      const flagBtn = document.getElementById('flagBtn');
+      if (flaggedQuestions[currentQuestionIndex]) {
+        flagBtn.className = "text-xs font-heading inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-lg border border-amber-400 bg-amber-50 text-amber-800 font-medium transition";
+        flagBtn.innerHTML = '<i class="fa-solid fa-bookmark text-amber-500"></i><span>ปักหมุดแล้ว</span>';
+      } else {
+        flagBtn.className = "text-xs font-heading inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-100 transition";
+        flagBtn.innerHTML = '<i class="fa-regular fa-bookmark"></i><span>ปักหมุด</span>';
+      }
+
+      const optionsContainer = document.getElementById('optionsContainer');
+      optionsContainer.innerHTML = '';
+
+      q.options.forEach((optText, optIdx) => {
+        const isSelected = userAnswers[currentQuestionIndex] === optIdx;
+        const optBtn = document.createElement('div');
+        let cardStyle = "option-card p-3.5 sm:p-4 rounded-xl border flex items-start space-x-3 select-none min-h-[48px] ";
+        let badgeStyle = "flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-lg text-xs font-heading font-bold shrink-0 mt-0.5 ";
+
+        if (feedbackMode === 'instant' && hasAnswered) {
+          optBtn.classList.add('locked');
+          if (optIdx === q.correctIndex) {
+            cardStyle += "bg-teal-50/95 border-teal-500 ring-1 ring-teal-500 text-teal-950 font-medium ";
+            badgeStyle += "bg-teal-600 text-white ";
+          } else if (isSelected) {
+            cardStyle += "bg-amber-50/95 border-amber-400 text-amber-950 ";
+            badgeStyle += "bg-amber-600 text-white ";
+          } else {
+            cardStyle += "bg-white border-slate-200 opacity-60 text-slate-500 ";
+            badgeStyle += "bg-slate-100 text-slate-400 ";
+          }
+        } else {
+          cardStyle += "cursor-pointer ";
+          if (isSelected) {
+            cardStyle += "bg-emerald-50 border-emerald-600 ring-1 ring-emerald-600 font-medium ";
+            badgeStyle += "bg-emerald-700 text-white ";
+          } else {
+            cardStyle += "bg-white border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 ";
+            badgeStyle += "bg-emerald-50 text-emerald-900 border border-emerald-200 ";
+          }
+          optBtn.onclick = () => selectOption(optIdx);
+        }
+
+        let trailingBadge = '';
+        if (feedbackMode === 'instant' && hasAnswered) {
+          if (optIdx === q.correctIndex) trailingBadge = '<span class="ml-auto text-[11px] bg-teal-600 text-white px-2 py-0.5 rounded-md font-heading font-semibold shrink-0">คำตอบที่ถูกต้อง</span>';
+          else if (isSelected) trailingBadge = '<span class="ml-auto text-[11px] bg-amber-600 text-white px-2 py-0.5 rounded-md font-heading font-semibold shrink-0">ที่คุณเลือก</span>';
+        }
+
+        optBtn.className = cardStyle;
+        optBtn.innerHTML = `<div class="${badgeStyle}">${LETTERS[optIdx] || (optIdx + 1)}</div><div class="text-xs sm:text-sm md:text-base leading-relaxed flex-1">${optText}</div>${trailingBadge}`;
+        optionsContainer.appendChild(optBtn);
+      });
+
+      const feedbackBox = document.getElementById('instantFeedbackBox');
+      if (feedbackMode === 'instant' && hasAnswered) {
+        const calcHtml = q.calculation
+          ? `<div class="mt-2.5 p-3 rounded-lg bg-emerald-50/90 border border-emerald-200 text-xs text-emerald-950 font-mono whitespace-pre-line leading-relaxed"><strong class="font-heading block mb-1"><i class="fa-solid fa-calculator mr-1"></i>ขั้นตอนการคำนวณ:</strong>${q.calculation}</div>`
+          : '';
+        feedbackBox.innerHTML = `
+          <div class="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-emerald-200/80 text-xs sm:text-sm text-slate-800 space-y-1.5">
+            <div class="font-bold text-emerald-900 font-heading flex items-center gap-1.5">
+              <i class="fa-solid fa-lightbulb text-amber-500"></i> เฉลยละเอียด: ข้อ ${q.answerKey}
+            </div>
+            <p class="leading-relaxed text-slate-700">${q.explanation}</p>
+            ${calcHtml}
+          </div>`;
+        feedbackBox.classList.remove('hidden');
+      } else {
+        feedbackBox.classList.add('hidden');
+        feedbackBox.innerHTML = '';
+      }
+
+      const prevBtn = document.getElementById('prevBtn');
+      prevBtn.disabled = currentQuestionIndex === 0;
+      prevBtn.classList.toggle('opacity-40', currentQuestionIndex === 0);
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (currentQuestionIndex === quizQuestions.length - 1) {
+        nextBtn.innerHTML = '<span>ส่งข้อสอบ</span> <i class="fa-solid fa-check text-[10px]"></i>';
+        nextBtn.className = "flex-1 sm:flex-initial px-5 py-2.5 bg-teal-600 hover:bg-teal-700 active:scale-95 text-white text-xs sm:text-sm font-heading font-semibold rounded-xl shadow-2xs transition flex items-center justify-center space-x-1.5 min-h-[44px]";
+        nextBtn.onclick = promptSubmitQuiz;
+      } else {
+        nextBtn.innerHTML = '<span>ถัดไป</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>';
+        nextBtn.className = "flex-1 sm:flex-initial px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 active:scale-95 text-white text-xs sm:text-sm font-heading font-semibold rounded-xl shadow-2xs transition flex items-center justify-center space-x-1.5 min-h-[44px]";
+        nextBtn.onclick = nextQuestion;
+      }
+
+      updatePaletteUI();
+    }
+
+    function selectOption(optIdx) {
+      if (optIdx >= quizQuestions[currentQuestionIndex].options.length) return;
+      if (feedbackMode === 'instant' && userAnswers[currentQuestionIndex] !== null) return;
+      userAnswers[currentQuestionIndex] = optIdx;
+      renderQuestion();
+    }
+
+    function clearCurrentAnswer() {
+      userAnswers[currentQuestionIndex] = null;
+      renderQuestion();
+    }
+
+    function toggleFlagCurrentQuestion() {
+      flaggedQuestions[currentQuestionIndex] = !flaggedQuestions[currentQuestionIndex];
+      renderQuestion();
+    }
+
+    function jumpToQuestion(idx) {
+      if (idx >= 0 && idx < quizQuestions.length) {
+        currentQuestionIndex = idx;
+        renderQuestion();
+        window.scrollTo({ top: 70, behavior: 'smooth' });
+      }
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIndex < quizQuestions.length - 1) jumpToQuestion(currentQuestionIndex + 1);
+    }
+
+    function prevQuestion() {
+      if (currentQuestionIndex > 0) jumpToQuestion(currentQuestionIndex - 1);
+    }
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        if (timerMode === 'countdown') {
+          timeRemaining--;
+          secondsElapsed++;
+          if (timeRemaining <= 0) { clearInterval(timerInterval); finalSubmitQuiz(); return; }
+          renderTime(timeRemaining);
+        } else {
+          secondsElapsed++;
+          renderTime(secondsElapsed);
+        }
+      }, 1000);
+    }
+
+    function renderTime(totalSec) {
+      const m = String(Math.floor(totalSec / 60)).padStart(2, '0');
+      const s = String(totalSec % 60).padStart(2, '0');
+      document.getElementById('timerDisplay').textContent = `${m}:${s}`;
+    }
+
+    function promptSubmitQuiz() {
+      const answeredCount = userAnswers.filter(a => a !== null).length;
+      const unansweredCount = quizQuestions.length - answeredCount;
+      let msg = `คุณตอบคำถามไปแล้ว <strong>${answeredCount}</strong> จากทั้งหมด ${quizQuestions.length} ข้อ`;
+      if (unansweredCount > 0) msg += `<br><span class="text-amber-700 font-semibold mt-1 block">ยังเหลือข้อที่ไม่ได้ตอบอีก ${unansweredCount} ข้อ</span>`;
+      document.getElementById('submitModalMessage').innerHTML = msg;
+      document.getElementById('submitModal').classList.remove('hidden');
+    }
+
+    function closeSubmitModal() {
+      document.getElementById('submitModal').classList.add('hidden');
+    }
+
+    function finalSubmitQuiz() {
+      closeSubmitModal();
+      if (timerInterval) clearInterval(timerInterval);
+
+      let totalScore = 0;
+      quizQuestions.forEach((q, idx) => { if (userAnswers[idx] === q.correctIndex) totalScore++; });
+
+      document.getElementById('resultScoreText').textContent = `${totalScore} / ${quizQuestions.length}`;
+      const pct = Math.round((totalScore / quizQuestions.length) * 100);
+      document.getElementById('resultPercentageText').textContent = `ความแม่นยำ ${pct}%`;
+
+      const mins = Math.floor(secondsElapsed / 60);
+      const secs = secondsElapsed % 60;
+      document.getElementById('resultTimeSpentText').textContent = `ใช้เวลาทำข้อสอบ ${mins} นาที ${secs} วินาที`;
+
+      hideAllViews();
+      document.getElementById('headerHelpLink').classList.remove('hidden');
+      document.getElementById('viewResult').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (totalScore >= (quizQuestions.length * 0.5) && typeof confetti === 'function') {
+        confetti({
+          particleCount: 80,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#15803d', '#10b981', '#65a30d', '#d97706', '#0d9488']
+        });
+      }
+    }
+
+    function enterReviewMode() {
+      hideAllViews();
+      document.getElementById('headerHelpLink').classList.remove('hidden');
+      document.getElementById('reviewHeaderTitle').textContent = `เฉลยละเอียดครบ ${quizQuestions.length} ข้อ`;
+      document.getElementById('filterAllBtn').textContent = `ทั้งหมด (${quizQuestions.length})`;
+      document.getElementById('viewReview').classList.remove('hidden');
+      filterReview('all');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function filterReview(mode) {
+      reviewFilter = mode;
+      document.getElementById('filterAllBtn').className = mode === 'all' ? "px-3 py-1 font-medium rounded-md bg-white text-slate-800 shadow-2xs" : "px-3 py-1 font-medium rounded-md text-slate-600";
+      document.getElementById('filterWrongBtn').className = mode === 'wrong' ? "px-3 py-1 font-medium rounded-md bg-white text-slate-800 shadow-2xs" : "px-3 py-1 font-medium rounded-md text-slate-600";
+
+      const container = document.getElementById('reviewQuestionsList');
+      container.innerHTML = '';
+
+      quizQuestions.forEach((q, idx) => {
+        const isCorrect = userAnswers[idx] === q.correctIndex;
+        if (reviewFilter === 'wrong' && isCorrect) return;
+
+        const choicesHTML = q.options.map((opt, oIdx) => {
+          let cls = "border-slate-200 bg-slate-50/50 text-slate-700";
+          if (oIdx === q.correctIndex) cls = "border-teal-500 bg-teal-50 text-teal-950 font-semibold";
+          else if (oIdx === userAnswers[idx] && !isCorrect) cls = "border-amber-400 bg-amber-50 text-amber-950";
+          return `<div class="p-2.5 rounded-xl border text-xs sm:text-sm flex items-start space-x-2 ${cls}">
+            <span class="font-heading font-bold">${LETTERS[oIdx] || (oIdx + 1)}.</span><span class="flex-1">${opt}</span>
+          </div>`;
+        }).join('');
+
+        const calcBlock = q.calculation ? `<div class="mt-2.5 p-3 rounded-xl bg-emerald-50/80 border border-emerald-200 font-mono text-xs whitespace-pre-line text-emerald-950"><strong class="font-heading block mb-1">ขั้นตอนการคำนวณ:</strong>${q.calculation}</div>` : '';
+
+        const card = document.createElement('div');
+        card.className = "p-4 sm:p-5 rounded-2xl border border-emerald-200/80 jungle-card space-y-3";
+        card.innerHTML = `
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-heading font-bold text-emerald-800">ข้อที่ ${q.id} (${q.sectionTitle})</span>
+            <span class="px-2 py-0.5 rounded-full font-heading font-bold ${isCorrect ? 'bg-teal-100 text-teal-900' : 'bg-amber-100 text-amber-900'}">${isCorrect ? 'ถูกต้อง' : 'ผิด'}</span>
+          </div>
+          <div class="text-slate-900 font-medium font-heading text-sm sm:text-base">${q.text}</div>
+          <div class="space-y-1.5">${choicesHTML}</div>
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-emerald-100 text-xs sm:text-sm text-slate-700 space-y-1">
+            <div class="font-bold text-emerald-950 font-heading">เฉลยข้อ ${q.answerKey}:</div>
+            <div class="leading-relaxed">${q.explanation}</div>
+            ${calcBlock}
+          </div>`;
+        container.appendChild(card);
+      });
+    }
+
+    // Scratchpad & Calculator Logic
+    function toggleScratchpadModal(show) {
+      const modal = document.getElementById('scratchpadModal');
+      modal.classList.toggle('hidden', !show);
+    }
+
+    let calcExpression = '';
+    function calcInput(val) {
+      const disp = document.getElementById('calcDisplay');
+      if (disp.value === '0' && val !== '.') calcExpression = '';
+      if (disp.value === 'Error') calcExpression = '';
+      calcExpression += (val === '%') ? '/100' : val;
+      disp.value = calcExpression || '0';
+    }
+    function calcClear() {
+      calcExpression = '';
+      document.getElementById('calcDisplay').value = '0';
+      document.getElementById('calcHistoryLine').textContent = '';
+    }
+    function calcBackspace() {
+      calcExpression = calcExpression.slice(0, -1);
+      document.getElementById('calcDisplay').value = calcExpression || '0';
+    }
+    function calcEvaluate() {
+      const disp = document.getElementById('calcDisplay');
+      const hist = document.getElementById('calcHistoryLine');
+      try {
+        if (!calcExpression) return;
+        if (!/^[0-9+\-*/.() ]+$/.test(calcExpression)) throw new Error("Invalid");
+        const res = Function('"use strict";return (' + calcExpression + ')')();
+        if (!isFinite(res)) throw new Error("Infinity");
+        const formatted = Number.isInteger(res) ? res : parseFloat(res.toFixed(4));
+        hist.textContent = `${calcExpression} =`;
+        disp.value = formatted;
+        calcExpression = String(formatted);
+      } catch (e) {
+        disp.value = 'Error';
+        calcExpression = '';
+      }
+    }
+
+    // Back to top listener
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTopBtn');
+      if (window.scrollY > 360) {
+        btn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+        btn.classList.add('opacity-100', 'translate-y-0');
+      } else {
+        btn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+        btn.classList.remove('opacity-100', 'translate-y-0');
+      }
+    });
+
+    // Keyboard shortcuts (Quiz + Calculator support)
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'TEXTAREA' || (e.target.tagName === 'INPUT' && !e.target.readOnly)) return;
+
+      const isCalcOpen = !document.getElementById('scratchpadModal').classList.contains('hidden');
+      if (isCalcOpen) {
+        if (e.key === 'Escape') { toggleScratchpadModal(false); return; }
+        if (/^[0-9+\-*/.%]$/.test(e.key)) { e.preventDefault(); calcInput(e.key); return; }
+        if (e.key === 'Enter' || e.key === '=') { e.preventDefault(); calcEvaluate(); return; }
+        if (e.key === 'Backspace') { e.preventDefault(); calcBackspace(); return; }
+        if (e.key.toLowerCase() === 'c') { e.preventDefault(); calcClear(); return; }
+        return;
+      }
+
+      const isQuizActive = !document.getElementById('viewQuiz').classList.contains('hidden');
+      if (!isQuizActive) return;
+      if (e.key === 'ArrowRight') nextQuestion();
+      else if (e.key === 'ArrowLeft') prevQuestion();
+      else if (e.key.toLowerCase() === 'b') toggleFlagCurrentQuestion();
+      else if (['1', '2', '3', '4', '5'].includes(e.key)) {
+        selectOption(parseInt(e.key, 10) - 1);
+      }
+    });
+  </script>
+</body>
+</html>
